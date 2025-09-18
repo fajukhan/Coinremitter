@@ -1,0 +1,23 @@
+/* Footer.css */
+
+.footer-input:focus {
+  border-color: #FF9900 !important;
+  background: #222 !important;
+}
+
+.footer-btn:hover {
+  background: #e68a00 !important;
+  transform: scale(1.05) !important;
+  transition: transform 0.3s ease, background 0.3s ease !important;
+}
+
+.footer-link a:hover {
+  color: #FF9900 !important;
+  transition: color 0.3s ease !important;
+}
+
+.social-icon:hover {
+  color: #fff !important;
+  transform: scale(1.2) !important;
+  transition: transform 0.3s ease, color 0.3s ease !important;
+}
