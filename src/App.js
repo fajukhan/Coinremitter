@@ -5,6 +5,8 @@ import Fess from "./Pages/Fess";
 import Coins from "./Pages/Coins";
 import Blogs from "./Pages/Blogs";
 import Plugins from "./Pages/Plugins";
+import SignInPage from "./Pages/SignInPage";
+import Signup from "./Pages/Signup";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -34,7 +36,21 @@ const App = () => {
           {
       path: "plugins",
       element: <Plugins />
-    }
+    },
+
+
+             {
+      path: "signinpage",
+      element: <SignInPage />
+    },
+
+            {
+      path: "signup",
+      element: <Signup />
+    },
+
+
+
   ]);
 
   return <RouterProvider router={router} />;

@@ -50,7 +50,7 @@ const Footer = () => {
     </div>
   </div>
 
-  <hr className='mx-5' style={{ borderColor: "#222", margin: 0 }} />
+<hr className="ms-5 mx-md-5" style={{ borderColor: "#222", margin: 0 }} />
 
   {/* Footer Content */}
   <div className="container-fluid  py-5">
@@ -58,8 +58,9 @@ const Footer = () => {
       
       {/* NAVIGATION */}
       <div className="col-12 col-md-3 mb-4 mb-md-0 px-5">
-        <h6 className="fw-bold mb-3 footer-heading" style={{ letterSpacing: 1, color: "#fff" }}>NAVIGATION</h6>
-        <div style={{ borderBottom: "2px solid #FF9900", width: "70px", marginBottom: "1rem" }}></div>
+        <div className="footer-section-sm-border">
+  <h6 className="fw-bold">NAVIGATION</h6>
+</div>
         <ul className="list-unstyled" style={{ fontSize: "1rem" }}>
           <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Supported Currencies</a></li>
           <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Affiliation Program</a></li>
@@ -72,8 +73,10 @@ const Footer = () => {
 
       {/* ABOUT */}
       <div className="col-12 col-md-3 mb-4 mb-md-0">
-        <h6 className="fw-bold mb-3 footer-heading" style={{ letterSpacing: 1, color: "#fff" }}>ABOUT</h6>
-        <div style={{ borderBottom: "2px solid #FF9900", width: "70px", marginBottom: "1rem" }}></div>
+      <div className="footer-section-sm-border">
+  <h6 className="fw-bold">PRODUCTS</h6>
+</div>
+
         <ul className="list-unstyled" style={{ fontSize: "1rem" }}>
           <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none social-icon">About Us</a></li>
           <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none social-icon">FAQ</a></li>
@@ -86,8 +89,9 @@ const Footer = () => {
 
       {/* PRODUCTS */}
       <div className="col-12 col-md-3 mb-4 mb-md-0">
-        <h6 className="fw-bold mb-3 footer-heading" style={{ letterSpacing: 1, color: "#fff" }}>PRODUCTS</h6>
-        <div style={{ borderBottom: "2px solid #FF9900", width: "70px", marginBottom: "1rem" }}></div>
+       <div className="footer-section-sm-border">
+  <h6 className="fw-bold">PRODUCTS</h6>
+</div>
         <ul className="list-unstyled" style={{ fontSize: "1rem" }}>
           <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">APIs</a></li>
           <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Invoice Service</a></li>

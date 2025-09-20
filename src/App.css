@@ -13,103 +13,189 @@
   color: black !important;
   font-weight: 400;
   font-size: 18px;
-
-  
-
-
-/* SECTION-1 */
-
-}.mySwiper {
-  width: 100%;
-  max-width: 600px;
-  height: 600px;
-  margin: auto;
 }
-
-
+  
+/* Swiper Container */
 .mySwiper {
   width: 100%;
-  max-width: 900px;
-  height: 600px;
   margin: auto;
+  padding-bottom: 30px;
 }
 
+/* Slides center align */
 .swiper-slide {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Card Design */
 .card-3d {
-  background-color: #fff;
+  background: #fff;
   border-radius: 20px;
   width: 100%;
-  max-width: 700px;
-  height: 500px;
+  max-width: 350px;       /* Auto resize */
+  aspect-ratio: 3 / 4;    /* Height auto adjust */
   overflow: hidden;
   transition: transform 0.3s ease;
 }
 
+/* Card Image */
 .card-image {
-  width: 320px;
- height: 400px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
- 
 }
 
-.btn-hover1:hover{
-    background-color: #f59e0b !important ;
-    color: white;
-    outline: none !important;
+/* Button Hover */
+.btn-hover1:hover {
+  background-color: #f59e0b !important;
+  color: white;
+  outline: none !important;
 }
-
-
-
 
 
 
 
 /* SECTION-2 */
-/* Add to your main CSS file */
-.code-block {
-  background: #23272f;
-  color: #fff;
-  min-width: 500px;
-  max-width: 700px;
-  min-height: 260px;
-  box-shadow: 0 6px 32px rgba(0,0,0,0.12);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+/* CryptoApiSection.css */
+.crypto-api-section {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.section-heading {
+  font-weight: 800;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
-.code-block-header {
-  background: #181a20;
-  color: #fff;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid #23272f;
-  font-family: monospace;
+
+.highlight {
+  color: #FF9900;
 }
-.code-block pre {
-  background: transparent;
-  color: #00ff99;
-  font-size: 1rem;
-  padding: 1rem;
-  margin: 0;
-  height: 100%;
-  font-family: 'Fira Mono', 'Consolas', monospace;
+
+.lead-text {
+  font-size: 1.25rem;
+  color: #6c757d;
+  margin-bottom: 2.5rem;
+}
+
+.code-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2rem;
+}
+
+.code-header {
+  background-color: #2d2d2d;
+  color: white;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.code-content {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 20px;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
   white-space: pre-wrap;
-  word-break: break-word;
-}
-.code-block.vs-code pre {
-  color: #61dafb;
-}
-.code-block.terminal pre {
-  color: #00ff99;
 }
 
+.terminal-header {
+  background-color: #3a3a3a;
+  color: white;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 16px;
+}
 
+.terminal-content {
+  background-color: #000;
+  color: #00ff00;
+  padding: 20px;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.btn-docs {
+  background-color: transparent;
+  border: 2px solid #212529;
+  color: #212529;
+  border-radius: 8px;
+  padding: 12px 30px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.btn-docs:hover {
+  background-color: #212529;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.swiper {
+  width: 100%;
+  padding: 30px 0;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+.slide-content {
+  width: 100%;
+  max-width: 900px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #FF9900 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: 2rem;
+  }
+  
+  .lead-text {
+    font-size: 1.1rem;
+  }
+  
+  .code-content, .terminal-content {
+    font-size: 12px;
+    padding: 15px;
+  }
+  
+  .slide-content {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-heading {
+    font-size: 1.8rem;
+  }
+  
+  .code-header, .terminal-header {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
 
 /* SECTION-3 Styles */
 .section3-title {
@@ -141,11 +227,14 @@
   height: 80px;
   object-fit: contain;
 }
-
-
 /* SECTION-4 */
 .section-pricing-title {
   font-size: 2.5rem;
+}
+@media (max-width: 575.98px) {
+  .section-pricing-title {
+    font-size: 1.8rem;
+  }
 }
 .section-pricing-underline {
   width: 180px;
@@ -168,6 +257,20 @@
   color: #fff;
   border-radius: 8px;
 }
+.section-pricing-btn:hover {
+  background: #e68900;
+  color: #fff;
+}
+/* Card hover effect */
+.section-card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.section-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+
 
 
 /* Section-10 */
@@ -566,6 +669,111 @@
 
 
 
+.plugin-card {
+  border-radius: 12px;
+  background: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.plugin-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.plugin-img {
+  height: 80px;
+  max-width: 120px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.plugin-card:hover .plugin-img {
+  transform: scale(1.1);
+}
+
+
+
+
+.plugins-img {
+  max-width: 90%;
+  transition: transform 0.4s ease;
+}
+
+.plugins-img:hover {
+  transform: scale(1.05);
+}
+
+.plugin-btn {
+  border-radius: 8px;
+  background: #ff9900;
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.plugin-btn:hover {
+  background: #e68900;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
+.faq-underline {
+  width: 120px;
+  height: 3px;
+  background: orange;
+  margin-top: 10px;
+}
+
+.faq-list {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.faq-item:hover {
+  background: #f9f9f9;
+}
+
+.faq-question {
+  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+}
+
+.faq-icon {
+  color: orange;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate Plus → Cross when active */
+.rotate-icon {
+  transform: rotate(45deg);
+  color: #ff6600;
+}
+
+.faq-answer {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #fafafa;
+  border-left: 3px solid orange;
+  font-size: 15px;
+  color: #444;
+}
+
+
 
 
 
@@ -592,6 +800,14 @@
     }
   }
 
+
+  @media (max-width: 767.98px) {
+  .footer-section-sm-border {
+    border-bottom: 2px solid #FF9900;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+}
 
 
 

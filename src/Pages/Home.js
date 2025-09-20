@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -61,26 +61,7 @@ import NavBar from './NavBar';
 import Footer from './Footer';
 
 
-const codeVS = `const Coinremitter = require('coinremitter-api');
-const BtcWallet = new Coinremitter('WALLET_API_KEY', 'WALLET_PASSWORD');
-const param = { label: "order5" }
-const address = await BtcWallet.createAddress(param);
-console.log("New address : ", address);`;
 
-const codeTerminal = `$ node index.js
-Wallet address
-{
-  success: true,
-  data: {
-    wallet_id: 'xxxxxxxxxxxxxxxxxxx',
-    wallet_name: 'BTCWallet',
-    coin: 'Bitcoin',
-    coin_symbol: 'BTC',
-    address: 'bc1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-    label: 'order_5',
-    qr_code: 'https://quickchart.io/qr?margin=1&size=200&text=bc1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-  }
-}`;
 
 
 
@@ -95,114 +76,36 @@ const Home = () => {
   ];
 
 
-   // Typing animation for terminal code
-  const [typedCode, setTypedCode] = useState('');
-  useEffect(() => {
-    setTypedCode('');
-    let i = 0;
-    const interval = setInterval(() => {
-      setTypedCode(codeTerminal.slice(0, i));
-      i++;
-      if (i > codeTerminal.length) clearInterval(interval);
-    }, 10); // typing speed
-    return () => clearInterval(interval);
-  }, []); // re-run on mount (page refresh)
-
   return (
     <>
 
     {/* NAVBAR */}
       <NavBar />
-      {/* SECTION-1 */}
-      <section>
-         <div className="container text-center py-5">
-        <h1 className="fw-bold mb-4">
-          Crypto Payments Easy With <span style={{ color: '#FF9900' }}>CoinRemitter</span>
-        </h1>
+{/* SECTION-1 */}
+<section>
+  <div className="container text-center py-5">
+    <h1 className="fw-bold mb-4">
+      Crypto Payments Easy With <span style={{ color: '#FF9900' }}>CoinRemitter</span>
+    </h1>
 
-           {/* Subheading */}
-      <p className="text-muted mb-4">
-        Explore the crypto payment gateway specially designed for businesses
-      </p>
+    {/* Subheading */}
+    <p className="text-muted mb-4">
+      Explore the crypto payment gateway specially designed for businesses
+    </p>
 
-      {/* CTA Button */}
-      <button className="btn btn-outline-dark fw-bold px-4 py-2 mb-5 btn-hover1" style={{ borderRadius: '8px' }}>
-        START ACCEPTING CRYPTO PAYMENTS
-      </button>
+    {/* CTA Button */}
+    <button className="btn btn-outline-dark fw-bold px-4 py-2 mb-5 btn-hover1" style={{ borderRadius: '8px' }}>
+      START ACCEPTING CRYPTO PAYMENTS
+    </button>
 
-      <div className="container text-center py-5">
-        <Swiper
-          effect={'coverflow'}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={3.2}
-          loop={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-            reverseDirection: false  // Direction automatically left to right
-          }}
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: 2,
-            slideShadows: false,
-          }}
-          modules={[EffectCoverflow, Autoplay]}
-          className="mySwiper"
-        >
-          {cards.map((card) => (
-            <SwiperSlide key={card.id}>
-              <div className="card-3d">
-                <img src={card.img} alt="Crypto"  className="card-image" />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-
-       {/* Stats Section */}
-      <div className="row justify-content-between text-center">
-        <div className="col-6 col-md-3 mb-3">
-          <div className="p-3 bg-dark text-white rounded">
-            <h3 className="fw-bold">40569+</h3>
-            <p>Active Users</p>
-          </div>
-        </div>
-        <div className="col-6 col-md-3 mb-3">
-          <div className="p-3 bg-dark text-white rounded">
-            <h3 className="fw-bold">19.54M+</h3>
-            <p>Transactions</p>
-          </div>
-        </div>
-      </div>
-       </div>
-      </section>
-
-        {/* SECTION-2 */}
-      <section className='container-fluid py-5'>
-         <div className="text-center mb-4">
-          <h1 className="fw-bold mb-2">
-            The Crypto API By Developers, <span style={{ color: '#FF9900' }}>For Developers</span>
-          </h1>
-          <p className="lead text-muted mb-4">
-            Integrate our easy to use APIs, libraries to support your programming language, and interactive documentation.
-          </p>
-      
-        </div>
-
-          {/* Slider Section */}
-        <div className="row justify-content-between ">
-          <div className="col-12">
-              <Swiper
+    {/* Swiper */}
+    <Swiper
       effect={'coverflow'}
       grabCursor={true}
       centeredSlides={true}
-      slidesPerView={1}
       loop={true}
       autoplay={{
-        delay: 4000,
+        delay: 2500,
         disableOnInteraction: false,
       }}
       coverflowEffect={{
@@ -212,53 +115,126 @@ const Home = () => {
         modifier: 2,
         slideShadows: false,
       }}
+      breakpoints={{
+        0: { slidesPerView: 1.2, spaceBetween: 10 },   // Mobile
+        576: { slidesPerView: 2, spaceBetween: 15 },   // Small devices
+        768: { slidesPerView: 2.5, spaceBetween: 20 }, // Tablet
+        992: { slidesPerView: 3.2, spaceBetween: 30 }, // Desktop
+        1200: { slidesPerView: 4, spaceBetween: 40 },  // Large screens
+      }}
       modules={[EffectCoverflow, Autoplay]}
       className="mySwiper"
-      breakpoints={{
-        576: { slidesPerView: 1 },
-        768: { slidesPerView: 1.1 },
-        992: { slidesPerView: 1.3 },
-        1200: { slidesPerView: 1.5 },
-        1400: { slidesPerView: 1.7 },
-      }}
     >
-
-                  <SwiperSlide>
-        <div className="d-flex flex-column flex-md-row justify-content-center align-items-stretch ">
-          {/* VS Code Block */}
-          <div className="code-block vs-code flex-fill">
-            <div className="code-block-header">index.js</div>
-            <pre className="m-0"><code>{codeVS}</code></pre>
+      {cards.map((card) => (
+        <SwiperSlide key={card.id}>
+          <div className="card-3d">
+            <img src={card.img} alt="Crypto" className="card-image" />
           </div>
-          {/* Terminal Block */}
-          <div className="code-block terminal flex-fill">
-            <div className="code-block-header">&gt;_ Terminal</div>
-            <pre className="m-0"><code>{typedCode}</code></pre>
-          </div>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="d-flex flex-column flex-md-row justify-content-center align-items-stretch">
-          {/* VS Code Block (duplicate or change as needed) */}
-          <div className="code-block vs-code flex-fill">
-            <div className="code-block-header">index.js</div>
-            <pre className="m-0"><code>{codeVS}</code></pre>
-          </div>
-          {/* Terminal Block (duplicate or change as needed) */}
-          <div className="code-block terminal flex-fill">
-            <div className="code-block-header">&gt;_ Terminal</div>
-            <pre className="m-0"><code>{typedCode}</code></pre>
-          </div>
-        </div>
-      </SwiperSlide>
+        </SwiperSlide>
+      ))}
     </Swiper>
-          </div>
-           </div>
-               <div className="d-flex flex-wrap justify-content-center gap-3  ">
-            <button className="btn btn-outline-dark fw-bold px-4 py-2  btn-hover1" style={{ borderRadius: '8px' }}>READ API DOCS</button>
-          </div>
 
-      </section>
+    {/* Stats Section */}
+    <div className="row justify-content-center mt-5">
+      <div className="col-6 col-md-3 mb-3">
+        <div className="p-3 bg-dark text-white rounded">
+          <h3 className="fw-bold">40569+</h3>
+          <p>Active Users</p>
+        </div>
+      </div>
+      <div className="col-6 col-md-3 mb-3">
+        <div className="p-3 bg-dark text-white rounded">
+          <h3 className="fw-bold">19.54M+</h3>
+          <p>Transactions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+        {/* SECTION-2 */}
+    <section className="container-fluid py-5" style={{ backgroundColor: '#f8f9fa' }}>
+      <div className="container">
+        <div className="text-center mb-5">
+          <h1 className="fw-bold mb-3" style={{ fontSize: '2.5rem' }}>
+            The Crypto API By Developers, <span style={{ color: '#FF9900' }}>For Developers</span>
+          </h1>
+          <p className="lead text-muted mb-4" style={{ fontSize: '1.25rem' }}>
+            Integrate our easy to use APIs, libraries to support your programming language, and interactive documentation.
+          </p>
+        </div>
+
+        <div className="row justify-content-center">
+          <div className="col-12 col-lg-10">
+            <div className="row">
+              {/* Code Editor */}
+              <div className="col-12 col-md-6 mb-4 mb-md-0">
+                <div className="rounded shadow-sm" style={{ backgroundColor: '#1e1e1e', overflow: 'hidden' }}>
+                  <div className="d-flex justify-content-between align-items-center px-3 py-2" style={{ backgroundColor: '#2d2d2d', color: 'white' }}>
+                    <span>index.js</span>
+                    <div>
+                      <span className="me-1" style={{ color: '#ff5f56' }}>●</span>
+                      <span className="me-1" style={{ color: '#ffbd2e' }}>●</span>
+                      <span style={{ color: '#27c93f' }}>●</span>
+                    </div>
+                  </div>
+                  <pre className="p-3 mb-0" style={{ 
+                    backgroundColor: '#1e1e1e', 
+                    color: '#d4d4d4',
+                    fontFamily: 'monospace',
+                    fontSize: '14px',
+                    minHeight: '200px',
+                    overflow: 'auto'
+                  }}>
+{`// ContentError = require('commentError-mpl')
+// Context_Requests = new CommentError('WALLET_PPL_KEY', 'WALLET_PASSWORD')
+
+// ContentError = require('commentError-mpl')
+// Context_Requests = await Results(.createAddress(parmen))
+// Context_Requests = "", address)`}
+                  </pre>
+                </div>
+              </div>
+              
+              {/* Terminal */}
+              <div className="col-12 col-md-6">
+                <div className="rounded shadow-sm" style={{ backgroundColor: 'black', overflow: 'hidden' }}>
+                  <div className="px-3 py-2" style={{ backgroundColor: '#3a3a3a', color: 'white' }}>
+                    <span>&gt;_ Terminal</span>
+                  </div>
+                  <pre className="p-3 mb-0" style={{ 
+                    backgroundColor: 'black', 
+                    color: '#00ff00',
+                    fontFamily: 'monospace',
+                    fontSize: '14px',
+                    minHeight: '200px',
+                    overflow: 'auto'
+                  }}>
+{`$ node index.js
+Mallet address
+{
+    success: true,
+    data: {
+        wallet_name: @TClasslet,
+        color: '@localhost',
+        color_games: @TC',
+        address: DC1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    }
+}`}
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center mt-5">
+          <button className="btn btn-outline-dark fw-bold px-4 py-2" style={{ borderRadius: '8px' }}>
+            READ API DOCS
+          </button>
+        </div>
+      </div>
+    </section>
 
 
       {/* SECTION-3 */}
@@ -346,7 +322,6 @@ const Home = () => {
           </div>
 </section>
 
-
 {/* SECTION-4 */}
 <section className="container-fluid py-5">
   {/* Heading and Subheading */}
@@ -356,357 +331,406 @@ const Home = () => {
     </h1>
     <div className="section-pricing-underline mb-3"></div>
     <p className="lead text-muted section-pricing-desc">
-      Accept top cryptocurrencies with fast, secure, and user-friendly widgets. Integrate our widget in minutes and unlock new revenue streams worldwide.
+      Accept top cryptocurrencies with fast, secure, and user-friendly widgets. 
+      Integrate our widget in minutes and unlock new revenue streams worldwide.
     </p>
   </div>
-  {/* Row with two columns  1 */}
-  <div className="row align-items-center justify-content-center m-5 g-4" style={{border:"1px solid #ddd", borderRadius:"10px", }}>
-    {/* Left Column */}
-    <div className="col-12 col-md-6">
-      <div className="p-4 h-100">
-        <h2 className="fw-bold mb-3">Pricing Widget</h2>
-        <p className="mb-4">
-          Showcase your plans with a customizable pricing table and let customers pay instantly in crypto. Ideal for SaaS platforms, subscription services, and digital products.
-        </p>
-        <button className="btn fw-bold mb-4 section-pricing-btn">
-          INTEGRATE PRICING WIDGET <span style={{ fontSize: '1.2em' }}>→</span>
-        </button>
-        <ul className="list-unstyled mt-3">
-          <li className="mb-3 d-flex align-items-center">
-            <span className="me-2 section-pricing-list-icon">✔️</span>
-            <span>Multiple Widget Layouts for Different Business Categories</span>
-          </li>
-          <li className="mb-3 d-flex align-items-center">
-            <span className="me-2 section-pricing-list-icon">✔️</span>
-            <span>Add/Remove Widget Cards Based on the Number of Plans</span>
-          </li>
-          <li className="mb-3 d-flex align-items-center">
-            <span className="me-2 section-pricing-list-icon">✔️</span>
-            <span>Clickable Call-to-Action Buttons With Plan Name &amp; Pricing</span>
-          </li>
-        </ul>
+
+  {/* ✅ Widgets Section */}
+  <div className="container">
+    <div className="row g-4">
+      
+      {/* Pricing Widget */}
+      <div className="col-12">
+        <div className="row align-items-center border rounded p-3 section-card-hover">
+          {/* Left */}
+          <div className="col-12 col-md-6">
+            <h2 className="fw-bold mb-3">Pricing Widget</h2>
+            <p className="mb-4">
+              Showcase your plans with a customizable pricing table and let customers pay instantly in crypto.
+            </p>
+            <button className="btn fw-bold mb-4 section-pricing-btn">
+              INTEGRATE PRICING WIDGET <span style={{ fontSize: '1.2em' }}>→</span>
+            </button>
+            <ul className="list-unstyled mt-3">
+              <li className="mb-3 d-flex align-items-center">
+                <span className="me-2 section-pricing-list-icon">✔️</span>
+                <span>Multiple Widget Layouts for Different Business Categories</span>
+              </li>
+              <li className="mb-3 d-flex align-items-center">
+                <span className="me-2 section-pricing-list-icon">✔️</span>
+                <span>Add/Remove Widget Cards Based on the Number of Plans</span>
+              </li>
+              <li className="mb-3 d-flex align-items-center">
+                <span className="me-2 section-pricing-list-icon">✔️</span>
+                <span>Clickable Call-to-Action Buttons With Plan Name & Pricing</span>
+              </li>
+            </ul>
+          </div>
+          {/* Right */}
+          <div className="col-12 col-md-6 text-center">
+            <img
+              src={require('../Image/pricing.gif')}
+              alt="Pricing Widget"
+              className="img-fluid rounded shadow bg-white"
+              style={{ maxHeight: 350 }}
+            />
+          </div>
+        </div>
       </div>
-    </div>
-    {/* Right Column */}
-    <div className="col-12 col-md-6 text-center">
-      <img
-        src={require('../Image/pricing.gif')}
-        alt="Pricing Widget"
-        className="img-fluid rounded shadow"
-        style={{ maxHeight: 350, background: '#fff' }}
-      />
-    </div>
-  </div>
 
-  {/* Row with two columns  2 */}
-<div className="row align-items-center justify-content-center m-5 g-4" style={{ border: "1px solid #ddd", borderRadius: "10px" }}>
-  {/* Left Column */}
-  <div className="col-12 col-md-6">
-    <div className="p-4 h-100">
-      <h2 className="fw-bold mb-3">Presale Widget</h2>
-      <p className="mb-4">
-        Easily launch your ICO presale or token sale and accept crypto Payments directly on your website. An ideal solution for blockchain projects and token launches.
-      </p>
-       <button className="btn fw-bold mb-4 section-pricing-btn">
-          LAUNCH PRESALE <span style={{ fontSize: '1.2em' }}>→</span>
-        </button>
-      <ul className="list-unstyled mt-3">
-        <li className="mb-3 d-flex align-items-center">
-          <span className="me-2 section-pricing-list-icon" style={{ color: "#FF9900", fontSize: "1.5rem" }}>✔️</span>
-          <span>Token Details With Icon, Token Name, &amp; Token Symbol</span>
-        </li>
-        <li className="mb-3 d-flex align-items-center">
-          <span className="me-2 section-pricing-list-icon" style={{ color: "#FF9900", fontSize: "1.5rem" }}>✔️</span>
-          <span>Up to Four Token Distribution Rounds With Different Pricing</span>
-        </li>
-        <li className="mb-3 d-flex align-items-center">
-          <span className="me-2 section-pricing-list-icon" style={{ color: "#FF9900", fontSize: "1.5rem" }}>✔️</span>
-          <span>Pricing Strategies and Bonus Rewards on Bulk Purchases</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-  {/* Right Column */}
-  <div className="col-12 col-md-6 text-center">
-    <img
-      src={require('../Image/presale-widget.93c7ddf9.gif')}
-      alt="Presale Widget"
-      className="img-fluid rounded shadow"
-      style={{ maxHeight: 350, background: '#fff' }}
-    />
-  </div>
-</div>
+      {/* Presale Widget */}
+      <div className="col-12">
+        <div className="row align-items-center border rounded p-3 section-card-hover flex-md-row-reverse">
+          {/* Left */}
+          <div className="col-12 col-md-6">
+            <h2 className="fw-bold mb-3">Presale Widget</h2>
+            <p className="mb-4">
+              Easily launch token presales and accept crypto payments directly with a plug-and-play widget.
+            </p>
+            <button className="btn fw-bold mb-4 section-pricing-btn">
+              INTEGRATE PRESALE WIDGET <span style={{ fontSize: '1.2em' }}>→</span>
+            </button>
+            <ul className="list-unstyled mt-3">
+              <li className="mb-3 d-flex align-items-center">
+                <span className="me-2 section-pricing-list-icon">✔️</span>
+                <span>Customizable Presale Timer and Token Price</span>
+              </li>
+              <li className="mb-3 d-flex align-items-center">
+                <span className="me-2 section-pricing-list-icon">✔️</span>
+                <span>Real-time Token Sale Progress Tracking</span>
+              </li>
+              <li className="mb-3 d-flex align-items-center">
+                <span className="me-2 section-pricing-list-icon">✔️</span>
+                <span>Secure Payment Integration With Wallet Support</span>
+              </li>
+            </ul>
+          </div>
+          {/* Right */}
+          <div className="col-12 col-md-6 text-center">
+            <img
+              src={require('../Image/presale-widget.93c7ddf9.gif')}
+              alt="Presale Widget"
+              className="img-fluid rounded shadow bg-white"
+              style={{ maxHeight: 350 }}
+            />
+          </div>
+        </div>
+      </div>
 
-{/* Row with two columns: Payment Button 3 */}
-<div className="row align-items-center justify-content-center m-5 g-4" style={{ border: "1px solid #ddd", borderRadius: "10px" }}>
-  {/* Left Column */}
-  <div className="col-12 col-md-6">
-    <div className="p-4 h-100">
-      <h2 className="fw-bold mb-3">Payment button</h2>
-      <p className="mb-4">
-        Add a simple button to accept cryptocurrency payments or donations in a pre-defined amount. Great for charities, content creators, and quick online payments.
-      </p>
-      <button className="btn fw-bold mb-4 section-pricing-btn" style={{ color: "#FF9900", background: "transparent", border: "none", fontSize: "1.2rem", paddingLeft: 0 }}>
-        CREATE PAYMENT BUTTON <span style={{ fontSize: '1.2em' }}>→</span>
-      </button>
-      <ul className="list-unstyled mt-3">
-        <li className="mb-3 d-flex align-items-center">
-          <span className="me-2 section-pricing-list-icon" style={{ color: "#FF9900", fontSize: "1.5rem" }}>✔️</span>
-          <span>Custom Button Styling With Color, Icon, and Shadow</span>
-        </li>
-        <li className="mb-3 d-flex align-items-center">
-          <span className="me-2 section-pricing-list-icon" style={{ color: "#FF9900", fontSize: "1.5rem" }}>✔️</span>
-          <span>Price in a Fixed Amount in Your Preferred Fiat Currency</span>
-        </li>
-        <li className="mb-3 d-flex align-items-center">
-          <span className="me-2 section-pricing-list-icon" style={{ color: "#FF9900", fontSize: "1.5rem" }}>✔️</span>
-          <span>Branding Option With Business Logo in the Popup</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-  {/* Right Column */}
-  <div className="col-12 col-md-6 text-center">
-    <img
-      src={require('../Image/payment-button.8ed67243.gif')}
-      alt="Payment Button"
-      className="img-fluid rounded shadow"
-      style={{ maxHeight: 350, background: '#fff' }}
-    />
-  </div>
-</div>
+      {/* Payment Button */}
+      <div className="col-12">
+        <div className="row align-items-center border rounded p-3 section-card-hover">
+          {/* Left */}
+          <div className="col-12 col-md-6">
+            <h2 className="fw-bold mb-3">Payment Button</h2>
+            <p className="mb-4">
+              Add a ready-to-use crypto payment button to your site and start accepting payments instantly.
+            </p>
+            <button className="btn fw-bold mb-4 section-pricing-btn">
+              INTEGRATE PAYMENT BUTTON <span style={{ fontSize: '1.2em' }}>→</span>
+            </button>
+            <ul className="list-unstyled mt-3">
+              <li className="mb-3 d-flex align-items-center">
+                <span className="me-2 section-pricing-list-icon">✔️</span>
+                <span>One-line Code Integration for Websites</span>
+              </li>
+              <li className="mb-3 d-flex align-items-center">
+                <span className="me-2 section-pricing-list-icon">✔️</span>
+                <span>Customizable Button Styles and Labels</span>
+              </li>
+              <li className="mb-3 d-flex align-items-center">
+                <span className="me-2 section-pricing-list-icon">✔️</span>
+                <span>Instant Notifications on Successful Payments</span>
+              </li>
+            </ul>
+          </div>
+          {/* Right */}
+          <div className="col-12 col-md-6 text-center">
+            <img
+              src={require('../Image/payment-button.8ed67243.gif')}
+              alt="Payment Button"
+              className="img-fluid rounded shadow bg-white"
+              style={{ maxHeight: 350 }}
+            />
+          </div>
+        </div>
+      </div>
 
-{/* Row with two columns: Payment Page 4 */}
-<div className="row align-items-center justify-content-center m-5 g-4" style={{ border: "1px solid #ddd", borderRadius: "10px" }}>
-  {/* Left Column */}
-  <div className="col-12 col-md-6">
-    <div className="p-4 h-100">
-      <h2 className="fw-bold mb-3">Payment Page</h2>
-      <p className="mb-4">
-        Easily create a branded payment page for smooth cryptocurrency payments with a sharable URL. Perfect for freelancers, fundraisers, and businesses of any size.
-      </p>
-      <button className="btn fw-bold mb-4 section-pricing-btn" style={{ color: "#FF9900", background: "transparent", border: "none", fontSize: "1.2rem", paddingLeft: 0 }}>
-        SET UP PAYMENT PAGE <span style={{ fontSize: '1.2em' }}>→</span>
-      </button>
-      <ul className="list-unstyled mt-3">
-        <li className="mb-3 d-flex align-items-center">
-          <span className="me-2 section-pricing-list-icon" style={{ color: "#FF9900", fontSize: "1.5rem" }}>✔️</span>
-          <span>Goal Tracker for Amount and Quantity-Based Targets</span>
-        </li>
-        <li className="mb-3 d-flex align-items-center">
-          <span className="me-2 section-pricing-list-icon" style={{ color: "#FF9900", fontSize: "1.5rem" }}>✔️</span>
-          <span>Price Fields for Fixed/Custom Amounts and Quantity</span>
-        </li>
-        <li className="mb-3 d-flex align-items-center">
-          <span className="me-2 section-pricing-list-icon" style={{ color: "#FF9900", fontSize: "1.5rem" }}>✔️</span>
-          <span>Custom URL Option for Payment Page Redirection</span>
-        </li>
-      </ul>
+      {/* Payment Page */}
+      <div className="col-12">
+        <div className="row align-items-center border rounded p-3 section-card-hover flex-md-row-reverse">
+          {/* Left */}
+          <div className="col-12 col-md-6">
+            <h2 className="fw-bold mb-3">Payment Page</h2>
+            <p className="mb-4">
+              Generate a standalone crypto payment page for customers who don’t want to integrate widgets.
+            </p>
+            <button className="btn fw-bold mb-4 section-pricing-btn">
+              CREATE PAYMENT PAGE <span style={{ fontSize: '1.2em' }}>→</span>
+            </button>
+            <ul className="list-unstyled mt-3">
+              <li className="mb-3 d-flex align-items-center">
+                <span className="me-2 section-pricing-list-icon">✔️</span>
+                <span>Unique Payment Links for Each Transaction</span>
+              </li>
+              <li className="mb-3 d-flex align-items-center">
+                <span className="me-2 section-pricing-list-icon">✔️</span>
+                <span>Support for Multiple Cryptocurrencies</span>
+              </li>
+              <li className="mb-3 d-flex align-items-center">
+                <span className="me-2 section-pricing-list-icon">✔️</span>
+                <span>Track Payment Status in Real-Time</span>
+              </li>
+            </ul>
+          </div>
+          {/* Right */}
+          <div className="col-12 col-md-6 text-center">
+            <img
+              src={require('../Image/payment-page.4db556ef.gif')}
+              alt="Payment Page"
+              className="img-fluid rounded shadow bg-white"
+              style={{ maxHeight: 350 }}
+            />
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-  {/* Right Column */}
-  <div className="col-12 col-md-6 text-center">
-    <img
-      src={require('../Image/payment-page.4db556ef.gif')}
-      alt="Payment Page"
-      className="img-fluid rounded shadow"
-      style={{ maxHeight: 350, background: '#fff' }}
-    />
-  </div>
-</div>
 </section>
+
 
 
 {/* SECTION-5 */}
 <section className="container-fluid py-5">
   {/* Heading */}
   <div className="text-center mb-5">
-    <h1 className="fw-bold mb-3" style={{ fontSize: '2.7rem' }}>
-      Why Trust <span style={{ color: '#000' }}>CoinRemitter</span>?
+    <h1 className="fw-bold mb-3" style={{ fontSize: "2.7rem" }}>
+      Why Trust <span style={{ color: "#000" }}>CoinRemitter</span>?
     </h1>
-    <div style={{
-      width: 180,
-      height: 4,
-      background: '#FF9900',
-      borderRadius: 2,
-      margin: '0 auto 1.5rem auto'
-    }}></div>
+    <div
+      style={{
+        width: 180,
+        height: 4,
+        background: "#FF9900",
+        borderRadius: 2,
+        margin: "0 auto 1.5rem auto",
+      }}
+    ></div>
   </div>
+
   {/* Stats Grid */}
-  <div className="row g-0 justify-content-center m-5" style={{ border: '1px solid #FF9900', borderRadius: '2px', overflow: 'hidden' }}>
+  <div
+    className="row justify-content-center m-0"
+    style={{
+      border: "1px solid #FF9900",
+      borderRadius: "2px",
+      overflow: "hidden",
+    }}
+  >
     {/* Row 1 */}
-    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5" style={{ borderRight: '1px solid #FF9900', borderBottom: '1px solid #FF9900' }}>
-      <h2 className="fw-bold" style={{ fontSize: '2.7rem' }}>0</h2>
-      <div className="mt-2" style={{ fontSize: '1.2rem' }}>Lost funds &amp; almost no downtime</div>
+<div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-end border-bottom border-warning">
+  <h2 className="fw-bold" style={{ fontSize: "2.7rem" }}>0</h2>
+  <div className="mt-2 text-center text-md-start" style={{ fontSize: "1.2rem" }}>
+    Lost funds &amp; almost no downtime
+  </div>
+</div>
+
+    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-end border-bottom border-warning">
+      <h2 className="fw-bold" style={{ fontSize: "2.7rem" }}>10+</h2>
+      <div className="mt-2" style={{ fontSize: "1.2rem" }}>
+        Supported cryptocurrencies
+      </div>
     </div>
-    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5" style={{ borderRight: '1px solid #FF9900', borderBottom: '1px solid #FF9900' }}>
-      <h2 className="fw-bold" style={{ fontSize: '2.7rem' }}>10+</h2>
-      <div className="mt-2" style={{ fontSize: '1.2rem' }}>Supported cryptocurrencies</div>
+
+    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-bottom border-warning">
+      <h2 className="fw-bold" style={{ fontSize: "2.7rem" }}>99%</h2>
+      <div className="mt-2" style={{ fontSize: "1.2rem" }}>
+        Merchant Satisfaction Rate
+      </div>
     </div>
-    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5" style={{ borderBottom: '1px solid #FF9900' }}>
-      <h2 className="fw-bold" style={{ fontSize: '2.7rem' }}>99%</h2>
-      <div className="mt-2" style={{ fontSize: '1.2rem' }}>Merchant Satisfaction Rate</div>
-    </div>
+
     {/* Row 2 */}
-    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5" style={{ borderRight: '1px solid #FF9900' }}>
-      <h2 className="fw-bold" style={{ fontSize: '2.7rem' }}>130+</h2>
-      <div className="mt-2" style={{ fontSize: '1.2rem' }}>Countries supported</div>
+    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-end border-warning">
+      <h2 className="fw-bold" style={{ fontSize: "2.7rem" }}>130+</h2>
+      <div className="mt-2" style={{ fontSize: "1.2rem" }}>
+        Countries supported
+      </div>
     </div>
-    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5" style={{ borderRight: '1px solid #FF9900' }}>
-      <h2 className="fw-bold" style={{ fontSize: '2.7rem' }}>20+</h2>
-      <div className="mt-2" style={{ fontSize: '1.2rem' }}>Industries associated</div>
+
+    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-end border-warning">
+      <h2 className="fw-bold" style={{ fontSize: "2.7rem" }}>20+</h2>
+      <div className="mt-2" style={{ fontSize: "1.2rem" }}>
+        Industries associated
+      </div>
     </div>
+
     <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5">
-      <h2 className="fw-bold" style={{ fontSize: '2.7rem' }}>40569+</h2>
-      <div className="mt-2" style={{ fontSize: '1.2rem' }}>Active Users</div>
+      <h2 className="fw-bold" style={{ fontSize: "2.7rem" }}>40569+</h2>
+      <div className="mt-2" style={{ fontSize: "1.2rem" }}>
+        Active Users
+      </div>
     </div>
   </div>
 </section>
+
 
 
 {/* SECTION-6  */}
 <section className="container-fluid py-5">
-
-  <div className="row g-4 justify-content-center mx-5">
+  <div className="row g-4 justify-content-center mx-3 mx-md-5">
     {/* Row 1 */}
-    <div className=" col-12 col-md-4">
-      <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm text-start">
-        <div className="mb-3">
-          <i className="bi bi-arrow-left-right"><SiCryptpad size={50} /></i>
-        </div>
-        <h5 className="fw-bold mb-2" >LOW CRYPTO PROCESSING FEE</h5>
-        <p className="mb-0" style={{ fontSize: 16 }}>
-          Coinremitter is a crypto payment gateway that charges only 0.23% processing fees from merchants while withdrawing crypto funds.
-        </p>
-      </div>
-    </div>
     <div className="col-12 col-md-4">
-      <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm text-start">
-        <div className="mb-3" >
-          <i className="bi bi-code-slash"><IoCodeSlashSharp size={50}/>
-</i>
+      <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm">
+        <div className="d-flex flex-column flex-sm-row align-items-center align-items-md-start text-center text-md-start gap-3">
+          <SiCryptpad size={50} className="text-warning flex-shrink-0" />
+          <div>
+            <h5 className="fw-bold mb-2">LOW CRYPTO PROCESSING FEE</h5>
+            <p className="mb-0" style={{ fontSize: 16 }}>
+              Coinremitter is a crypto payment gateway that charges only 0.23% processing fees from merchants while withdrawing crypto funds.
+            </p>
+          </div>
         </div>
-        <h5 className="fw-bold mb-2" >OPEN-SOURCE PLUGINS</h5>
-        <p className="mb-0" style={{ fontSize: 16 }}>
-          Install Coinremitter's crypto payment plugins in your websites based on WordPress, Magento, etc &amp; accept crypto payments easily.
-        </p>
       </div>
     </div>
+
     <div className="col-12 col-md-4">
-      <div className="btn-hover1  p-4 h-100 bg-light rounded-4 shadow-sm text-start">
-        <div className="mb-3" >
-          <i className="bi bi-fuel-pump"><SiFueler size={50} /></i>
+      <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm">
+        <div className="d-flex flex-column flex-sm-row align-items-center align-items-md-start text-center text-md-start gap-3">
+          <IoCodeSlashSharp size={50} className="text-warning flex-shrink-0" />
+          <div>
+            <h5 className="fw-bold mb-2">OPEN-SOURCE PLUGINS</h5>
+            <p className="mb-0" style={{ fontSize: 16 }}>
+              Install Coinremitter's crypto payment plugins in your websites based on WordPress, Magento, etc &amp; accept crypto payments easily.
+            </p>
+          </div>
         </div>
-        <h5 className="fw-bold mb-2" >GAS STATION</h5>
-        <p className="mb-0" style={{ fontSize: 16 }}>
-          Gas station reduces gas fees on selected crypto, which allows merchants to save more on withdrawals after accepting crypto payments.
-        </p>
       </div>
     </div>
+
+    <div className="col-12 col-md-4">
+      <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm">
+        <div className="d-flex flex-column flex-sm-row align-items-center align-items-md-start text-center text-md-start gap-3">
+          <SiFueler size={50} className="text-warning flex-shrink-0" />
+          <div>
+            <h5 className="fw-bold mb-2">GAS STATION</h5>
+            <p className="mb-0" style={{ fontSize: 16 }}>
+              Gas station reduces gas fees on selected crypto, which allows merchants to save more on withdrawals after accepting crypto payments.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     {/* Row 2 */}
-    <div className=" col-12 col-md-4">
-      <div className="btn-hover1  p-4 h-100 bg-light rounded-4 shadow-sm text-start">
-        <div className="mb-3">
-          <i className="bi bi-receipt"><LiaFileInvoiceSolid size={50}/></i>
-        </div>
-        <h5 className="btn-hover1  fw-bold mb-2">INVOICE SERVICES</h5>
-        <p className="mb-0" style={{ fontSize: 16 }}>
-          Easy &amp; dynamic invoices can be generated for requesting crypto payments, even for the payments accepted with crypto API.
-        </p>
-      </div>
-    </div>
-      <div className="col-12 col-md-4">
-      <div className="btn-hover1  p-4 h-100 bg-light rounded-4 shadow-sm text-start">
-        <div className="mb-3">
-          <i className="bi bi-shield-lock"><MdOutlineSecurity  size={50}/></i>
-        </div>
-        <h5 className="fw-bold mb-2" >DEFENCE GRADE SECURITY</h5>
-        <p className="mb-0" style={{ fontSize: 16 }}>
-          Merchants who are accepting crypto payments with Coinremitter can rely on Coinremitter's security features to keep their funds safe.
-        </p>
-      </div>
-    </div>
     <div className="col-12 col-md-4">
-      <div className="btn-hover1  p-4 h-100 bg-light rounded-4 shadow-sm text-start">
-        <div className="mb-3" >
-          <i className="bi bi-file-earmark-text"><MdOutlineApi size={50}/></i>
+      <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm">
+        <div className="d-flex flex-column flex-sm-row align-items-center align-items-md-start text-center text-md-start gap-3">
+          <LiaFileInvoiceSolid size={50} className="text-warning flex-shrink-0" />
+          <div>
+            <h5 className="fw-bold mb-2">INVOICE SERVICES</h5>
+            <p className="mb-0" style={{ fontSize: 16 }}>
+              Easy &amp; dynamic invoices can be generated for requesting crypto payments, even for the payments accepted with crypto API.
+            </p>
+          </div>
         </div>
-        <h5 className="fw-bold mb-2" >API &amp; DOCUMENTATION</h5>
-        <p className="mb-0" style={{ fontSize: 16 }}>
-          Comprehensive API and documentation to help you integrate and automate your crypto payment flows with ease.
-        </p>
+      </div>
+    </div>
+
+    <div className="col-12 col-md-4">
+      <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm">
+        <div className="d-flex flex-column flex-sm-row align-items-center align-items-md-start text-center text-md-start gap-3">
+          <MdOutlineSecurity size={50} className="text-warning flex-shrink-0" />
+          <div>
+            <h5 className="fw-bold mb-2">DEFENCE GRADE SECURITY</h5>
+            <p className="mb-0" style={{ fontSize: 16 }}>
+              Merchants who are accepting crypto payments with Coinremitter can rely on Coinremitter's security features to keep their funds safe.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="col-12 col-md-4">
+      <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm">
+        <div className="d-flex flex-column flex-sm-row align-items-center align-items-md-start text-center text-md-start gap-3">
+          <MdOutlineApi size={50} className="text-warning flex-shrink-0" />
+          <div>
+            <h5 className="fw-bold mb-2">API &amp; DOCUMENTATION</h5>
+            <p className="mb-0" style={{ fontSize: 16 }}>
+              Comprehensive API and documentation to help you integrate and automate your crypto payment flows with ease.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 
-{/* SECTION-7*/}
+
+{/* SECTION-7 */}
 <section className="container-fluid py-5">
-  <div className="row align-items-center mx-5">
+  <div className="row align-items-center mx-3 mx-lg-5">
+    
     {/* Left: Plugin Logos Grid */}
     <div className="col-12 col-lg-6 mb-4 mb-lg-0">
       <div className="container-fluid">
-        {/* Row 1: 2 columns */}
+        
+        {/* Row 1: 2 columns (sm: full width, md+: 2 cols) */}
         <div className="row g-0">
-          <div className="col-6 border" style={{ background: "#fff", minHeight: 150, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Magento.svg" alt="Magento" style={{ maxHeight: 60 }} />
-            <span className="ms-2 fw-bold" style={{ fontSize: 28, color: "#F26322" }}>Magento</span>
+          <div className="col-12 col-md-6 border d-flex align-items-center justify-content-center bg-white p-3" style={{ minHeight: 150 }}>
+            <img src="https://www.citypng.com/public/uploads/preview/magento-logo-icon-hd-png-701751694968127smfdayuwdf.png" 
+                 alt="Magento" style={{ maxHeight: 60 }} />
           </div>
-          <div className="col-6 border" style={{ background: "#fff", minHeight: 150, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="col-12 col-md-6 border d-flex justify-content-center align-items-center bg-white p-3" style={{ minHeight: 150 }}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg" alt="WordPress" style={{ maxHeight: 60 }} />
           </div>
         </div>
-        {/* Row 2: 3 columns */}
+
+        {/* Row 2: 3 columns (sm: full width, md+: 3 cols) */}
         <div className="row g-0">
-          <div className="col-4 border" style={{ background: "#fff", minHeight: 150, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="col-12 col-md-4 border d-flex justify-content-center align-items-center bg-white p-3" style={{ minHeight: 150 }}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" alt="Laravel" style={{ maxHeight: 50 }} />
           </div>
-          <div className="col-4 border" style={{ background: "#fff", minHeight: 150, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/PrestaShop_Logo.png" alt="PrestaShop" style={{ maxHeight: 50 }} />
+          <div className="col-12 col-md-4 border d-flex align-items-center justify-content-center bg-white p-3" style={{ minHeight: 150 }}>
+            <img src="https://cdn-icons-png.flaticon.com/512/825/825533.png" alt="PrestaShop" style={{ maxHeight: 50 }} />
           </div>
-          <div className="col-4 border" style={{ background: "#fff", minHeight: 150, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Opencart_logo.png" alt="OpenCart" style={{ maxHeight: 50 }} />
+          <div className="col-12 col-md-4 border d-flex align-items-center justify-content-center bg-white p-3" style={{ minHeight: 150 }}>
+            <img src="https://www.opencart.com/application/view/image/icon/opencart-logo.png" alt="OpenCart" style={{ maxHeight: 40 }} />
           </div>
         </div>
-        {/* Row 3: 2 columns */}
+
+        {/* Row 3: 2 columns (sm: full width, md+: 2 cols) */}
         <div className="row g-0">
-          <div className="col-6 border" style={{ background: "#fff", minHeight: 150, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="col-12 col-md-6 border d-flex justify-content-center align-items-center bg-white p-3" style={{ minHeight: 150 }}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP" style={{ maxHeight: 50 }} />
           </div>
-          <div className="col-6 border" style={{ background: "#fff", minHeight: 150, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="col-12 col-md-6 border d-flex justify-content-center align-items-center bg-white p-3" style={{ minHeight: 150 }}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js" style={{ maxHeight: 50 }} />
           </div>
         </div>
       </div>
     </div>
+
     {/* Right: Heading, Paragraph, Button */}
-    <div className="col-12 col-lg-6 d-flex flex-column align-items-start justify-content-center ps-lg-5">
-      <h1 className="fw-bold mb-3" style={{ fontSize: '2.7rem' }}>
+    <div className="col-12 col-lg-6 d-flex flex-column align-items-center align-items-lg-start justify-content-center ps-0 ps-lg-5 text-center text-lg-start">
+      <h1 className="fw-bold mb-3" style={{ fontSize: '2.2rem' }}>
         Open-Source Plugins
       </h1>
-      <div style={{
-        width: 180,
-        height: 4,
-        background: '#FF9900',
-        borderRadius: 2,
-        marginBottom: '1.5rem'
-      }}></div>
-      <p className="mb-4" style={{ maxWidth: 500, fontSize: 18 }}>
+      <div style={{ width: 180, height: 4, background: '#FF9900', borderRadius: 2, marginBottom: '1.5rem' }}></div>
+      <p className="mb-4" style={{ maxWidth: 500, fontSize: 16 }}>
         Coinremitter’s crypto payment plugins can be used to accept crypto payments directly on websites based on supported platforms. Installing plugins can enable crypto payment gateway services on your website.
       </p>
-      <button className="btn fw-bold px-4 py-3" style={{
-        background: '#FF9900',
-        color: '#fff',
-        borderRadius: '10px',
-        fontSize: 18,
-        fontWeight: 700
-      }}>
+      <button className="btn fw-bold px-4 py-3" style={{ background: '#FF9900', color: '#fff', borderRadius: '10px', fontSize: 16, fontWeight: 700 }}>
         KNOW MORE
       </button>
     </div>
+
   </div>
 </section>
+
 
 
 {/* Section-8 */}
@@ -716,225 +740,277 @@ const Home = () => {
     <h1 className="fw-bold mb-3" style={{ fontSize: '2.7rem' }}>
       Accept Crypto Payments For Your ICO
     </h1>
-   
   </div>
-<section
-  className="container-fluid py-5"
-   style={{
-    backgroundImage: `url(${icopayment})`,
-    backgroundPosition: 'center center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
-    backgroundColor: 'white',
-    minHeight: '300px',
-     minWidth: '100%'
-  }}
->
-
-
-  {/* Cards and ICO image */}
-  <div className="row align-items-center justify-content-between mb-3">
-    {/* Left Top Card */}
-    <div className="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-end">
-      <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-4" style={{ minWidth: 340, maxWidth: 400 }}>
-        <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
-          <i className="bi bi-puzzle"><FaPuzzlePiece /></i>
-        </span>
-        <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
-          Easy ICO Payment Processor Integration
-        </span>
-      </div>
-    </div>
-    
-    {/* Right Top Card */}
-    <div className="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-start">
-      <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-4" style={{ minWidth: 340, maxWidth: 400 }}>
-        <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
-          <i className="bi bi-arrow-repeat"><TiArrowRepeat /></i>
-        </span>
-        <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
-          High Uptime for Consistent Service Availability
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <div className="row align-items-center justify-content-between">
-    {/* Left Bottom Card */}
-    <div className="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-end">
-      <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-4" style={{ minWidth: 340, maxWidth: 400 }}>
-        <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
-          <i className="bi bi-cash-stack"><BsCashStack /></i>
-        </span>
-        <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
-          Capable of Handling High Volume Transactions
-        </span>
-      </div>
-    </div>
-    {/* Spacer for center */}
-    <div className="col-12 col-md-4 d-none d-md-block"></div>
-    {/* Right Bottom Card */}
-    <div className="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-start">
-      <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-4" style={{ minWidth: 340, maxWidth: 400 }}>
-        <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
-          <i className="bi bi-headset"><FaHeadset /></i>
-        </span>
-        <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
-          Dedicated support within the ICO period
-        </span>
-      </div>
-    </div>
-  </div>
-
   
-</section>
-{/* Button */}
+  {/* Main content section with conditional background */}
+  <section
+    className="container-fluid py-5 d-none d-md-block"
+    style={{
+      backgroundImage: `url(${icopayment})`,
+      backgroundPosition: 'center center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'contain',
+      backgroundColor: 'white',
+      minHeight: '300px',
+      minWidth: '100%'
+    }}
+  >
+    {/* Cards and ICO image - visible only on md screens and up */}
+    <div className="row align-items-center justify-content-between mb-3">
+      {/* Left Top Card */}
+      <div className="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-end">
+        <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-4" style={{ minWidth: 340, maxWidth: 400 }}>
+          <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
+            <i className="bi bi-puzzle"><FaPuzzlePiece /></i>
+          </span>
+          <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
+            Easy ICO Payment Processor Integration
+          </span>
+        </div>
+      </div>
+      
+      {/* Right Top Card */}
+      <div className="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-start">
+        <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-4" style={{ minWidth: 340, maxWidth: 400 }}>
+          <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
+            <i className="bi bi-arrow-repeat"><TiArrowRepeat /></i>
+          </span>
+          <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
+            High Uptime for Consistent Service Availability
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div className="row align-items-center justify-content-between">
+      {/* Left Bottom Card */}
+      <div className="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-end">
+        <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-4" style={{ minWidth: 340, maxWidth: 400 }}>
+          <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
+            <i className="bi bi-cash-stack"><BsCashStack /></i>
+          </span>
+          <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
+            Capable of Handling High Volume Transactions
+          </span>
+        </div>
+      </div>
+      {/* Spacer for center */}
+      <div className="col-12 col-md-4 d-none d-md-block"></div>
+      {/* Right Bottom Card */}
+      <div className="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-start">
+        <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-4" style={{ minWidth: 340, maxWidth: 400 }}>
+          <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
+            <i className="bi bi-headset"><FaHeadset /></i>
+          </span>
+          <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
+            Dedicated support within the ICO period
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Mobile version without background image */}
+  <section className="container-fluid py-5 d-md-none">
+    <div className="row justify-content-center">
+      {/* Card 1 */}
+      <div className="col-12 col-sm-10 mb-4">
+        <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-3 w-100">
+          <span className="me-3" style={{ fontSize: 30, color: '#FF9900' }}>
+            <i className="bi bi-puzzle"><FaPuzzlePiece /></i>
+          </span>
+          <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 16 }}>
+            Easy ICO Payment Processor Integration
+          </span>
+        </div>
+      </div>
+      
+      {/* Card 2 */}
+      <div className="col-12 col-sm-10 mb-4">
+        <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-3 w-100">
+          <span className="me-3" style={{ fontSize: 30, color: '#FF9900' }}>
+            <i className="bi bi-arrow-repeat"><TiArrowRepeat /></i>
+          </span>
+          <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 16 }}>
+            High Uptime for Consistent Service Availability
+          </span>
+        </div>
+      </div>
+      
+      {/* Card 3 */}
+      <div className="col-12 col-sm-10 mb-4">
+        <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-3 w-100">
+          <span className="me-3" style={{ fontSize: 30, color: '#FF9900' }}>
+            <i className="bi bi-cash-stack"><BsCashStack /></i>
+          </span>
+          <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 16 }}>
+            Capable of Handling High Volume Transactions
+          </span>
+        </div>
+      </div>
+      
+      {/* Card 4 */}
+      <div className="col-12 col-sm-10 mb-4">
+        <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-3 w-100">
+          <span className="me-3" style={{ fontSize: 30, color: '#FF9900' }}>
+            <i className="bi bi-headset"><FaHeadset /></i>
+          </span>
+          <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 16 }}>
+            Dedicated support within the ICO period
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Button */}
   <div className="text-center mt-5">
-    <button className="btn fw-bold px-5 py-3" style={{
+    <button className="btn fw-bold px-4 px-md-5 py-2 py-md-3" style={{
       background: '#FF9900',
       color: '#fff',
       borderRadius: '16px',
-      fontSize: 20,
+      fontSize: 'clamp(16px, 4vw, 20px)',
       fontWeight: 700
     }}>
       LEARN MORE
     </button>
   </div>
-  </section>
+</section>
 
-
-  {/* Section-9 */}
+{/* Section-9 */}
  <section className="container-fluid py-5" style={{ background: "#fafafa" }}>
-      {/* Heading */}
-      <div className=" ms-5">
-        <h1 className="fw-bold" style={{ fontSize: '2.7rem', lineHeight: 1.1 }}>
-          Which Industries Are Primarily <br /> Accepting Crypto?
-        </h1>
-        <div style={{
-          width: 280,
-          height: 4,
-          background: '#FF9900',
-          borderRadius: 2,
-         
-        }}></div>
+  {/* Heading */}
+  <div className="container">
+    <div className="row">
+      <div className="col-12">
+        <div className="ms-0 ms-md-5 text-center text-md-start">
+          <h1 className="fw-bold" style={{ fontSize: '2.2rem', lineHeight: 1.1 }}>
+            Which Industries Are Primarily <br className="d-none d-md-block" /> Accepting Crypto?
+          </h1>
+          <div className="mx-auto mx-md-0" style={{
+            width: 280,
+            height: 4,
+            background: '#FF9900',
+            borderRadius: 2,
+          }}></div>
+        </div>
       </div>
+    </div>
 
-      {/* Main Row with two equal columns */}
-      <div className="">
-        <div className="row align-items-center">
-          {/* Left Column: Cards Grid */}
-          <div className="col-12 col-lg-6">
-            <div className="row g-3 ms-4">
-              {/* Travel & Hospitality */}
-              <div className="col-6">
-                <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-                  <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
-                    <i className="bi bi-suitcase-lg"><FaSuitcaseRolling /></i>
-                  </span>
-                  <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
-                    Travel &amp; Hospitality
-                  </span>
-                </div>
-              </div>
-              {/* Technology & Software */}
-              <div className="col-6">
-                <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-                  <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
-                    <i className="bi bi-pc-display"><GrTechnology /></i>
-                  </span>
-                  <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
-                    Technology &amp; Software
-                  </span>
-                </div>
-              </div>
-              {/* Food & Beverage */}
-              <div className="col-6">
-                <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-                  <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
-                    <i className="bi bi-cup-straw"><IoFastFoodSharp /></i>
-                  </span>
-                  <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
-                    Food &amp; Beverage
-                  </span>
-                </div>
-              </div>
-              {/* Real Estate */}
-              <div className="col-6">
-                <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-                  <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
-                    <i className="bi bi-house-door"><MdMapsHomeWork /></i>
-                  </span>
-                  <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
-                    Real Estate
-                  </span>
-                </div>
-              </div>
-              {/* E-Commerce */}
-              <div className="col-6">
-                <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-                  <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
-                    <i className="bi bi-cart-check"><FaCartShopping /></i>
-                  </span>
-                  <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
-                    E-Commerce
-                  </span>
-                </div>
-              </div>
-              {/* Media & Entertainment */}
-              <div className="col-6">
-                <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-                  <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
-                    <i className="bi bi-collection-play"><MdPermMedia /></i>
-                  </span>
-                  <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
-                    Media &amp; Entertainment
-                  </span>
-                </div>
-              </div>
-              {/* Online Gaming */}
-              <div className="col-6">
-                <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-                  <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
-                    <i className="bi bi-controller"><SiPcgamingwiki /></i>
-                  </span>
-                  <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
-                    Online Gaming
-                  </span>
-                </div>
-              </div>
-              {/* Medical & Healthcare */}
-              <div className="col-6">
-                <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-                  <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
-                    <i className="bi bi-heart-pulse"><FaFileMedical /></i>
-                  </span>
-                  <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
-                    Medical &amp; Healthcare
-                  </span>
-                </div>
-              </div>
+    {/* Main Row with two equal columns */}
+    <div className="row align-items-center mt-4">
+      {/* Left Column: Cards Grid */}
+      <div className="col-12 col-lg-6 order-2 order-lg-1">
+        <div className="row g-3 ms-0 ms-lg-4 justify-content-center">
+          {/* Travel & Hospitality */}
+          <div className="col-12 col-sm-6">
+            <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+                <i className="bi bi-suitcase-lg"><FaSuitcaseRolling /></i>
+              </span>
+              <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
+                Travel &amp; Hospitality
+              </span>
             </div>
           </div>
-
-          {/* Right Column: Image inside container */}
-          <div className="col-12 col-lg-6 d-flex justify-content-center align-items-center">
-            <img
-              src={cryptobg1}
-              alt="Industries Accepting Crypto"
-              className="img-fluid"
-              style={{ maxWidth: "90%", maxHeight: 540 }}
-            />
+          {/* Technology & Software */}
+          <div className="col-12 col-sm-6">
+            <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+                <i className="bi bi-pc-display"><GrTechnology /></i>
+              </span>
+              <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
+                Technology &amp; Software
+              </span>
+            </div>
+          </div>
+          {/* Food & Beverage */}
+          <div className="col-12 col-sm-6">
+            <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+                <i className="bi bi-cup-straw"><IoFastFoodSharp /></i>
+              </span>
+              <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
+                Food &amp; Beverage
+              </span>
+            </div>
+          </div>
+          {/* Real Estate */}
+          <div className="col-12 col-sm-6">
+            <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+                <i className="bi bi-house-door"><MdMapsHomeWork /></i>
+              </span>
+              <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
+                Real Estate
+              </span>
+            </div>
+          </div>
+          {/* E-Commerce */}
+          <div className="col-12 col-sm-6">
+            <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+                <i className="bi bi-cart-check"><FaCartShopping /></i>
+              </span>
+              <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
+                E-Commerce
+              </span>
+            </div>
+          </div>
+          {/* Media & Entertainment */}
+          <div className="col-12 col-sm-6">
+            <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+                <i className="bi bi-collection-play"><MdPermMedia /></i>
+              </span>
+              <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
+                Media &amp; Entertainment
+              </span>
+            </div>
+          </div>
+          {/* Online Gaming */}
+          <div className="col-12 col-sm-6">
+            <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+                <i className="bi bi-controller"><SiPcgamingwiki /></i>
+              </span>
+              <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
+                Online Gaming
+              </span>
+            </div>
+          </div>
+          {/* Medical & Healthcare */}
+          <div className="col-12 col-sm-6">
+            <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+                <i className="bi bi-heart-pulse"><FaFileMedical /></i>
+              </span>
+              <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
+                Medical &amp; Healthcare
+              </span>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
+      {/* Right Column: Image inside container */}
+      <div className="col-12 col-lg-6 order-1 order-lg-2 d-flex justify-content-center align-items-center mb-4 mb-lg-0">
+        <img
+          src={cryptobg1}
+          alt="Industries Accepting Crypto"
+          className="img-fluid"
+          style={{ maxWidth: "90%", maxHeight: 540 }}
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
   {/* SECTION-10 */}
-       <section className="container-fluid py-5" style={{ background: "#fff" }}>
+<section className="container-fluid py-5" style={{ background: "#fff" }}>
   {/* Heading and Subheading */}
   <div className="text-center mb-4">
-    <h1 className="fw-bold mb-3" style={{ fontSize: '2.7rem' }}>
+    <h1 className="fw-bold mb-3" style={{ fontSize: 'clamp(1.8rem, 5vw, 2.7rem)' }}>
       Affiliation Program
     </h1>
     <div style={{
@@ -944,114 +1020,175 @@ const Home = () => {
       borderRadius: 2,
       margin: '0 auto 1.5rem auto'
     }}></div>
-    <p className="lead text-muted mb-4">
+    <p className="lead text-muted mb-4 px-3" style={{ fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>
       Earn referral bonus by adding new members to the community.
     </p>
   </div>
+  
   {/* Steps Row */}
-  <div className="row g-0 justify-content- mx-5" style={{ border: '1px solid #222', borderRadius: '2px', overflow: 'hidden' }}>
+  <div className="row g-0 justify-content-center mx-0 mx-md-5" style={{ 
+    border: '1px solid #222', 
+    borderRadius: '2px', 
+    overflow: 'hidden',
+    maxWidth: '1400px',
+    margin: '0 auto'
+  }}>
     {/* Step 1 */}
-    <div className="col-12 col-md-6 col-lg-3 d-flex flex-column justify-content-between align-items-start p-4 position-relative affiliation-card" style={{ minHeight: 320, borderRight: '1px solid #222', background: "#fff" }}>
+    <div className="col-12 col-md-6 col-lg-3 d-flex flex-column justify-content-between align-items-start p-4 position-relative affiliation-card" style={{ 
+      minHeight: 320, 
+      borderRight: '1px solid #222', 
+      borderBottom: '1px solid #222',
+      background: "#fff" 
+    }}>
       <div>
-        <div className="mb-3 affiliation-icon" style={{ fontSize: 54, color: '#bbb' }}>
+        <div className="mb-3 affiliation-icon" style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)', color: '#bbb' }}>
           <i className="bi bi-person-plus"><FaUserFriends /></i>
         </div>
-        <h5 className="fw-bold mb-2" style={{ color: '#FF9900' }}>INVITE USERS</h5>
-        <p className="mb-0" style={{ fontSize: 16 }}>
-          Let your network know about Coinremitter’s seamless crypto payment services
+        <h5 className="fw-bold mb-2" style={{ color: '#FF9900', fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>INVITE USERS</h5>
+        <p className="mb-0" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1rem)' }}>
+          Let your network know about Coinremitter's seamless crypto payment services
         </p>
       </div>
-    <span
-  className="position-absolute top-50 end-0 translate-middle-y d-none d-lg-block"
-  style={{
-    right: '-20px',
-    zIndex: 2,
-    pointerEvents: 'none'
-  }}
->
-  <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="0,0 40,30 0,60" fill="#FF9900" />
-  </svg>
-</span> 
-      <span className="position-absolute bottom-20 end-0" style={{ fontSize: 140, color: '#eee', zIndex: 0, right: 10, bottom: -20, fontWeight: 700, userSelect: 'none' }}>1</span>
+      <span
+        className="position-absolute top-50 end-0 translate-middle-y d-none d-lg-block"
+        style={{
+          right: '-20px',
+          zIndex: 2,
+          pointerEvents: 'none'
+        }}
+      >
+        <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="0,0 40,30 0,60" fill="#FF9900" />
+        </svg>
+      </span> 
+      <span className="position-absolute bottom-0 end-0" style={{ 
+        fontSize: 'clamp(5rem, 20vw, 8.75rem)', 
+        color: '#eee', 
+        zIndex: 0, 
+        right: '10px', 
+        bottom: '-20px', 
+        fontWeight: 700, 
+        userSelect: 'none' 
+      }}>1</span>
     </div>
+    
     {/* Step 2 */}
-    <div className="col-12 col-md-6 col-lg-3 d-flex flex-column justify-content-between align-items-start p-4 position-relative affiliation-card" style={{ minHeight: 320, borderRight: '1px solid #222', background: "#fff" }}>
+    <div className="col-12 col-md-6 col-lg-3 d-flex flex-column justify-content-between align-items-start p-4 position-relative affiliation-card" style={{ 
+      minHeight: 320, 
+      borderRight: '1px solid #222', 
+      borderBottom: '1px solid #222',
+      background: "#fff" 
+    }}>
       <div>
-        <div className="mb-3 affiliation-icon" style={{ fontSize: 54, color: '#bbb' }}>
+        <div className="mb-3 affiliation-icon" style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)', color: '#bbb' }}>
           <i className="bi bi-handshake"><FaHandsHelping /></i>
         </div>
-        <h5 className="fw-bold mb-2" style={{ color: '#FF9900' }}>THEY JOIN</h5>
-        <p className="mb-0" style={{ fontSize: 16 }}>
-          Ask your network to click the link shared by you &amp; join Coinremitter.
+        <h5 className="fw-bold mb-2" style={{ color: '#FF9900', fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>THEY JOIN</h5>
+        <p className="mb-0" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1rem)' }}>
+          Ask your network to click the link shared by you & join Coinremitter.
         </p>
       </div>
-     <span
-  className="position-absolute top-50 end-0 translate-middle-y d-none d-lg-block"
-  style={{
-    right: '-20px',
-    zIndex: 2,
-    pointerEvents: 'none'
-  }}
->
-  <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="0,0 40,30 0,60" fill="#FF9900" />
-  </svg>
-</span> 
-      <span className="position-absolute bottom-0 end-0" style={{ fontSize: 140, color: '#eee', zIndex: 0, right: 10, bottom: -20, fontWeight: 700, userSelect: 'none' }}>2</span>
+      <span
+        className="position-absolute top-50 end-0 translate-middle-y d-none d-lg-block"
+        style={{
+          right: '-20px',
+          zIndex: 2,
+          pointerEvents: 'none'
+        }}
+      >
+        <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="0,0 40,30 0,60" fill="#FF9900" />
+        </svg>
+      </span> 
+      <span className="position-absolute bottom-0 end-0" style={{ 
+        fontSize: 'clamp(5rem, 20vw, 8.75rem)', 
+        color: '#eee', 
+        zIndex: 0, 
+        right: '10px', 
+        bottom: '-20px', 
+        fontWeight: 700, 
+        userSelect: 'none' 
+      }}>2</span>
     </div>
+    
     {/* Step 3 */}
-    <div className="col-12 col-md-6 col-lg-3 d-flex flex-column justify-content-between align-items-start p-4 position-relative affiliation-card" style={{ minHeight: 320, borderRight: '1px solid #222', background: "#fff" }}>
+    <div className="col-12 col-md-6 col-lg-3 d-flex flex-column justify-content-between align-items-start p-4 position-relative affiliation-card" style={{ 
+      minHeight: 320, 
+      borderRight: '1px solid #222', 
+      borderBottom: '1px solid #222',
+      background: "#fff" 
+    }}>
       <div>
-        <div className="mb-3 affiliation-icon" style={{ fontSize: 54, color: '#bbb' }}>
+        <div className="mb-3 affiliation-icon" style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)', color: '#bbb' }}>
           <i className="bi bi-people"><FaUserCheck /></i>
         </div>
-        <h5 className="fw-bold mb-2" style={{ color: '#FF9900' }}>THEY USE</h5>
-        <p className="mb-0" style={{ fontSize: 16 }}>
+        <h5 className="fw-bold mb-2" style={{ color: '#FF9900', fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>THEY USE</h5>
+        <p className="mb-0" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1rem)' }}>
           Ask your referrals to accept crypto payments using Coinremitter.
         </p>
       </div>
-    <span
-  className="position-absolute top-50 end-0 translate-middle-y d-none d-lg-block"
-  style={{
-    right: '-20px',
-    zIndex: 2,
-    pointerEvents: 'none'
-  }}
->
-  <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="0,0 40,30 0,60" fill="#FF9900" />
-  </svg>
-</span> 
-      <span className="position-absolute bottom-0 end-0" style={{ fontSize: 140, color: '#eee', zIndex: 0, right: 10, bottom: -20, fontWeight: 700, userSelect: 'none' }}>3</span>
+      <span
+        className="position-absolute top-50 end-0 translate-middle-y d-none d-lg-block"
+        style={{
+          right: '-20px',
+          zIndex: 2,
+          pointerEvents: 'none'
+        }}
+      >
+        <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="0,0 40,30 0,60" fill="#FF9900" />
+        </svg>
+      </span> 
+      <span className="position-absolute bottom-0 end-0" style={{ 
+        fontSize: 'clamp(5rem, 20vw, 8.75rem)', 
+        color: '#eee', 
+        zIndex: 0, 
+        right: '10px', 
+        bottom: '-20px', 
+        fontWeight: 700, 
+        userSelect: 'none' 
+      }}>3</span>
     </div>
+    
     {/* Step 4 */}
-    <div className="col-12 col-md-6 col-lg-3 d-flex flex-column justify-content-between align-items-start p-4 position-relative affiliation-card" style={{ minHeight: 320, background: "#fff" }}>
+    <div className="col-12 col-md-6 col-lg-3 d-flex flex-column justify-content-between align-items-start p-4 position-relative affiliation-card" style={{ 
+      minHeight: 320, 
+      borderBottom: '1px solid #222',
+      background: "#fff" 
+    }}>
       <div>
-        <div className="mb-3 affiliation-icon" style={{ fontSize: 54, color: '#bbb' }}>
+        <div className="mb-3 affiliation-icon" style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)', color: '#bbb' }}>
           <i className="bi bi-diagram-3"><GiTakeMyMoney /></i>
         </div>
-        <h5 className="fw-bold mb-2" style={{ color: '#FF9900' }}>YOU EARN</h5>
-        <p className="mb-0" style={{ fontSize: 16 }}>
-          Get up to 75% of your referral’s withdrawal fees as a referral bonus.
+        <h5 className="fw-bold mb-2" style={{ color: '#FF9900', fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>YOU EARN</h5>
+        <p className="mb-0" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1rem)' }}>
+          Get up to 75% of your referral's withdrawal fees as a referral bonus.
         </p>
       </div>
-       <span
-  className="position-absolute top-50 end-0 translate-middle-y d-none d-lg-block"
-  style={{
-    right: '-20px',
-    zIndex: 2,
-    pointerEvents: 'none'
-  }}
->
-  <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="0,0 40,30 0,60" fill="#FF9900" />
-  </svg>
-</span> 
-      <span className="position-absolute bottom-0 end-0" style={{ fontSize: 140, color: '#eee', zIndex: 0, right: 10, bottom: -20, fontWeight: 700, userSelect: 'none' }}>4</span>
+      <span
+        className="position-absolute top-50 end-0 translate-middle-y d-none d-lg-block"
+        style={{
+          right: '-20px',
+          zIndex: 2,
+          pointerEvents: 'none'
+        }}
+      >
+        <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="0,0 40,30 0,60" fill="#FF9900" />
+        </svg>
+      </span> 
+      <span className="position-absolute bottom-0 end-0" style={{ 
+        fontSize: 'clamp(5rem, 20vw, 8.75rem)', 
+        color: '#eee', 
+        zIndex: 0, 
+        right: '10px', 
+        bottom: '-20px', 
+        fontWeight: 700, 
+        userSelect: 'none' 
+      }}>4</span>
     </div>
   </div>
-</section>
+</section>  
 
 
 {/* SECTION-11 */}
