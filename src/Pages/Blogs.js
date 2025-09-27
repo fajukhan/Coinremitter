@@ -161,7 +161,7 @@ const Blogs = () => {
               common scams and the [...]
             </p>
             <small className="text-muted d-block mb-3">Aug 26, 2025 – Tony</small>
-            <a href="/" className="btn btn-warning fw-bold px-4 py-2 rounded-pill">
+            <a href="/" className="btn crypto-btn fw-bold px-4 py-2 rounded-pill">
               READ MORE
             </a>
           </div>

@@ -38,6 +38,15 @@ const Plugins = () => {
     },
   ];
 
+
+
+
+
+  
+
+
+
+
   return (
     <>
 
@@ -61,7 +70,7 @@ const Plugins = () => {
       </p>
 
       {/* <!-- Third Button --> */}
-      <a href="/" class="btn btn-warning btn-lg px-4 py-2 fw-semibold text-uppercase">
+      <a href="/" class="btn btn-lg px-4 py-2 fw-semibold text-uppercase crypto-btn">
         Get Started ➝
       </a>
     </div>
@@ -184,7 +193,7 @@ const Plugins = () => {
           </p>
 
           {/* Button */}
-          <button className="btn btn-warning fw-bold px-4 py-2 plugin-btn">
+          <button className="btn  fw-bold px-4 py-2 crypto-btn">
             INTEGRATION PROCESS
           </button>
         </div>
@@ -221,6 +230,9 @@ const Plugins = () => {
         ))}
       </div>
     </section>
+
+
+    
 
 <Footer />
 

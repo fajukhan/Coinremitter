@@ -172,7 +172,7 @@ const Coins = () => {
           <p>
             Each cryptocurrency has its advantages such as Bitcoin’s largest market cap, Litecoin’s rapidly growing adoption, Bitcoin Cash’s higher block size, Ethereum’s largest ecosystem in <strong>blockchain & cryptocurrency</strong>, Dogecoin’s rapidly growing popularity & network, Dash’s faster <strong>crypto transactions</strong>, Tether’s stability, Binance’s liquidity, and Tron’s incredibly low transaction fees.
           </p>
-          <button className="btn btn-warning text-white fw-bold p-3 my-3">BEGIN ACCEPTING</button>
+          <button className="btn crypto-btn text-dark fw-bold p-3 my-3">BEGIN ACCEPTING</button>
         </div>
 
         {/* Second Column */}

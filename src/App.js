@@ -7,6 +7,14 @@ import Blogs from "./Pages/Blogs";
 import Plugins from "./Pages/Plugins";
 import SignInPage from "./Pages/SignInPage";
 import Signup from "./Pages/Signup";
+import Support from "./Pages/Support";
+import About from "./Pages/About";
+import Faq from "./Pages/Faq";
+import ListYourcoin from "./Pages/ListYourcoin";
+import Topcrypto from "./Pages/Topcrypto";
+import InvoiceServices from "./Pages/InvoiceServices";
+import PricingWidget from "./Pages/PricingWidget";
+import PresaleWidget from "./Pages/PresaleWidget";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -48,6 +56,59 @@ const App = () => {
       path: "signup",
       element: <Signup />
     },
+
+    
+            {
+      path: "support",
+      element: <Support />
+    },
+
+
+                {
+      path: "about",
+      element: <About />
+    },
+
+    
+                {
+      path: "faq",
+      element: <Faq />
+    },
+
+
+                 {
+      path: "listyourcoin",
+      element: <ListYourcoin />
+    },
+
+
+    
+                 {
+      path: "topcrypto",
+      element: <Topcrypto />
+    },
+
+
+                   {
+      path: "invoiceservices",
+      element: <InvoiceServices />
+    },
+
+
+    
+   {
+      path: "pricingwidget",
+      element: <PricingWidget />
+    },
+
+
+      
+   {
+      path: "presalwidget",
+      element: <PresaleWidget />
+    },
+
+
 
 
 

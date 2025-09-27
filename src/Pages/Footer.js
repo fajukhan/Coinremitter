@@ -35,10 +35,10 @@ const Footer = () => {
         />
         <button
           type="submit"
-          className="btn fw-bold px-4 py-2 footer-btn"
+          className="btn fw-bold px-4 py-2 crypto-btn"
           style={{
             background: "#FF9900",
-            color: "#fff",
+            color: "#000",
             borderRadius: "0",
             fontSize: "1rem",
             whiteSpace: "nowrap"
@@ -62,12 +62,12 @@ const Footer = () => {
   <h6 className="fw-bold">NAVIGATION</h6>
 </div>
         <ul className="list-unstyled" style={{ fontSize: "1rem" }}>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Supported Currencies</a></li>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Affiliation Program</a></li>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Features</a></li>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Pricing</a></li>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Testimonials</a></li>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Support</a></li>
+          <li className="mb-2 footer-link"><a href="/coins" className="text-white text-decoration-none">Supported Currencies</a></li>
+          <li className="mb-2 footer-link"> <a href="#section-10" className="text-white text-decoration-none">Affiliation Program</a></li>
+          <li className="mb-2 footer-link"><a href="#features" className="text-white text-decoration-none">Features</a></li>
+          <li className="mb-2 footer-link"><a href="#pricing" className="text-white text-decoration-none">Pricing</a></li>
+          <li className="mb-2 footer-link"><a href="#testimonials" className="text-white text-decoration-none">Testimonials</a></li>
+          <li className="mb-2 footer-link"><a href="/support" className="text-white text-decoration-none">Support</a></li>
         </ul>
       </div>
 
@@ -78,11 +78,11 @@ const Footer = () => {
 </div>
 
         <ul className="list-unstyled" style={{ fontSize: "1rem" }}>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none social-icon">About Us</a></li>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none social-icon">FAQ</a></li>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none social-icon">List Your Coin</a></li>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none social-icon">Latest Blogs</a></li>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none social-icon">Top Crypto</a></li>
+          <li className="mb-2 footer-link"><a href="/about" className="text-white text-decoration-none social-icon">About Us</a></li>
+          <li className="mb-2 footer-link"><a href="/faq" className="text-white text-decoration-none social-icon">FAQ</a></li>
+          <li className="mb-2 footer-link"><a href="/listyourcoin" className="text-white text-decoration-none social-icon">List Your Coin</a></li>
+          <li className="mb-2 footer-link"><a href="/blogs" className="text-white text-decoration-none social-icon">Latest Blogs</a></li>
+          <li className="mb-2 footer-link"><a href="/topcrypto" className="text-white text-decoration-none social-icon">Top Crypto</a></li>
           <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none social-icon">ICO Payment Processor</a></li>
         </ul>
       </div>
@@ -94,9 +94,9 @@ const Footer = () => {
 </div>
         <ul className="list-unstyled" style={{ fontSize: "1rem" }}>
           <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">APIs</a></li>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Invoice Service</a></li>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Pricing Widget</a></li>
-          <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Presale Widget</a></li>
+          <li className="mb-2 footer-link"><a href="/invoiceservices" className="text-white text-decoration-none">Invoice Service</a></li>
+          <li className="mb-2 footer-link"><a href="/pricingwidget" className="text-white text-decoration-none">Pricing Widget</a></li>
+          <li className="mb-2 footer-link"><a href="/presalwidget" className="text-white text-decoration-none">Presale Widget</a></li>
           <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Payment Button Widget</a></li>
           <li className="mb-2 footer-link"><a href="/" className="text-white text-decoration-none">Payment Page Widget</a></li>
         </ul>

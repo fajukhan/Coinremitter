@@ -886,7 +886,7 @@ const Fess = () => {
 
   {/* Signup Button */}
   <div className="text-center mt-4">
-    <button className="btn btn-warning px-4 py-2 fw-bold">SIGN UP FOR FREE</button>
+    <button className="btn px-4 py-2 crypto-btn">SIGN UP FOR FREE</button>
   </div>
 </section>
 

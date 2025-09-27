@@ -1,7 +1,9 @@
 
 import React from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Autoplay } from 'swiper/modules';
+import {  Autoplay } from 'swiper/modules';
+
+import { EffectCards } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import '../Pages/Footer1.css';
@@ -68,12 +70,7 @@ import Footer from './Footer';
 
 
 const Home = () => {
-  const cards = [
-    { id: 1, img: card1,  },
-    { id: 2, img: card5,},
-    { id: 3, img: card3,  },
-    { id: 4, img: card4,},
-  ];
+
 
 
   return (
@@ -82,75 +79,85 @@ const Home = () => {
     {/* NAVBAR */}
       <NavBar />
 {/* SECTION-1 */}
-<section>
-  <div className="container text-center py-5">
-    <h1 className="fw-bold mb-4">
-      Crypto Payments Easy With <span style={{ color: '#FF9900' }}>CoinRemitter</span>
-    </h1>
-
-    {/* Subheading */}
-    <p className="text-muted mb-4">
-      Explore the crypto payment gateway specially designed for businesses
-    </p>
-
-    {/* CTA Button */}
-    <button className="btn btn-outline-dark fw-bold px-4 py-2 mb-5 btn-hover1" style={{ borderRadius: '8px' }}>
-      START ACCEPTING CRYPTO PAYMENTS
-    </button>
-
-    {/* Swiper */}
-    <Swiper
-      effect={'coverflow'}
-      grabCursor={true}
-      centeredSlides={true}
-      loop={true}
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false,
-      }}
-      coverflowEffect={{
-        rotate: 0,
-        stretch: 0,
-        depth: 100,
-        modifier: 2,
-        slideShadows: false,
-      }}
-      breakpoints={{
-        0: { slidesPerView: 1.2, spaceBetween: 10 },   // Mobile
-        576: { slidesPerView: 2, spaceBetween: 15 },   // Small devices
-        768: { slidesPerView: 2.5, spaceBetween: 20 }, // Tablet
-        992: { slidesPerView: 3.2, spaceBetween: 30 }, // Desktop
-        1200: { slidesPerView: 4, spaceBetween: 40 },  // Large screens
-      }}
-      modules={[EffectCoverflow, Autoplay]}
-      className="mySwiper"
-    >
-      {cards.map((card) => (
-        <SwiperSlide key={card.id}>
-          <div className="card-3d">
-            <img src={card.img} alt="Crypto" className="card-image" />
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-
-    {/* Stats Section */}
-    <div className="row justify-content-center mt-5">
-      <div className="col-6 col-md-3 mb-3">
-        <div className="p-3 bg-dark text-white rounded">
-          <h3 className="fw-bold">40569+</h3>
-          <p>Active Users</p>
+        <section className="relative sm:pb-14 pb-9 pt-6 hero-banner py-5">
+      <div className="container mx-auto">
+        {/* Heading + CTA */}
+        <div className="text-center">
+          <h1 className="xl:text-6xl md:text-5xl sm:text-4xl text-[28px] xl:leading-tight md:leading-tight sm:leading-tight leading-tight font-extrabold text-black capitalize mb-6">
+            <span className="inline-block border-b-2 border-amber-500">
+              Crypto Payments
+            </span>{" "}
+            Easy With CoinRemitter
+          </h1>
+          <p className="md:text-xl text-base leading-snug font-light text-black mb-4">
+            Explore the crypto payment gateway specially designed for businesses
+          </p>
+          <a
+            className="primary-btn outline-btn mx-auto mb-6 inline-block px-6 py-3 font-semibold border-2 border-amber-500 rounded-full text-black hover:bg-amber-500 hover:text-white transition"
+            href="https://merchant.coinremitter.com/signup"
+          >
+            <button className="crypto-btn">Start Accepting Crypto Payments</button>
+          </a>
         </div>
-      </div>
-      <div className="col-6 col-md-3 mb-3">
-        <div className="p-3 bg-dark text-white rounded">
-          <h3 className="fw-bold">19.54M+</h3>
-          <p>Transactions</p>
+
+        {/* Swiper Cards */}
+        <div className="flex justify-center">
+          <Swiper
+            effect="cards"
+            grabCursor={true}
+            modules={[EffectCards]}
+            className="cardSwiper lg:w-[319px] sm:w-[288px] w-[180px] lg:h-[382px] sm:h-[345px] h-[230px]"
+          >
+            <SwiperSlide>
+              <img
+                src={card1}
+                alt="1 - Payment Method"
+                className="w-full h-full"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={card3}
+                alt="2 - Select Crypto"
+                className="w-full h-full"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={card4}
+                alt="3 - Deposit Address"
+                className="w-full h-full"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={card5}
+                alt="4 - Invoice #BTCXXXX"
+                className="w-full h-full"
+              />
+            </SwiperSlide>
+          </Swiper>
         </div>
-      </div>
-    </div>
+{/* <!-- Counters Section --> */}
+<div class="d-flex justify-content-between align-items-center mt-n5 position-relative z-1 bg-white bg-gradient px-3">
+  
+  {/* <!-- Counter 1 --> */}
+  <div class="text-center">
+    <div class="counter-clip">40569+</div>
+    <p class="counter-label">Active Users</p>
   </div>
-</section>
+
+  {/* <!-- Counter 2 --> */}
+  <div class="text-center">
+    <div class="counter-clip">19.54M+</div>
+    <p class="counter-label">Transactions</p>
+  </div>
+
+</div>
+
+      </div>
+    </section>
+    
 
         {/* SECTION-2 */}
     <section className="container-fluid py-5" style={{ backgroundColor: '#f8f9fa' }}>
@@ -229,7 +236,7 @@ Mallet address
         </div>
 
         <div className="text-center mt-5">
-          <button className="btn btn-outline-dark fw-bold px-4 py-2" style={{ borderRadius: '8px' }}>
+          <button className="btn    crypto-btn" style={{ borderRadius: '8px' }}>
             READ API DOCS
           </button>
         </div>
@@ -237,8 +244,7 @@ Mallet address
     </section>
 
 
-      {/* SECTION-3 */}
-{/* SECTION-3: Top Supported Cryptocurrencies */}
+{/* SECTION-3 */}
 <section className="container-fluid py-5">
   <div className="text-center mb-4">
     <h1 className="fw-bold mb-3 section3-title">
@@ -318,7 +324,7 @@ Mallet address
 
   </div>
      <div className="d-flex flex-wrap justify-content-center gap-3 py-5 ">
-            <button className="btn btn-outline-dark fw-bold px-4 py-2  btn-hover1" style={{ borderRadius: '8px' }}>LIST YOUR COIN</button>
+            <button className="btn crypto-btn" style={{ borderRadius: '8px' }}>LIST YOUR COIN</button>
           </div>
 </section>
 
@@ -578,7 +584,7 @@ Mallet address
 
 
 {/* SECTION-6  */}
-<section className="container-fluid py-5">
+<section id="features" className="container-fluid py-5">
   <div className="row g-4 justify-content-center mx-3 mx-md-5">
     {/* Row 1 */}
     <div className="col-12 col-md-4">
@@ -723,7 +729,7 @@ Mallet address
       <p className="mb-4" style={{ maxWidth: 500, fontSize: 16 }}>
         Coinremitter’s crypto payment plugins can be used to accept crypto payments directly on websites based on supported platforms. Installing plugins can enable crypto payment gateway services on your website.
       </p>
-      <button className="btn fw-bold px-4 py-3" style={{ background: '#FF9900', color: '#fff', borderRadius: '10px', fontSize: 16, fontWeight: 700 }}>
+      <button className="btn crypto-btn" style={{ background: '#FF9900', color: '#000', borderRadius: '10px', fontSize: 16, fontWeight: 700 }}>
         KNOW MORE
       </button>
     </div>
@@ -865,13 +871,7 @@ Mallet address
 
   {/* Button */}
   <div className="text-center mt-5">
-    <button className="btn fw-bold px-4 px-md-5 py-2 py-md-3" style={{
-      background: '#FF9900',
-      color: '#fff',
-      borderRadius: '16px',
-      fontSize: 'clamp(16px, 4vw, 20px)',
-      fontWeight: 700
-    }}>
+    <button className="btn crypto-btn" >
       LEARN MORE
     </button>
   </div>
@@ -1007,7 +1007,7 @@ Mallet address
 </section>
 
   {/* SECTION-10 */}
-<section className="container-fluid py-5" style={{ background: "#fff" }}>
+<section id="section-10" className="container-fluid py-5" style={{ background: "#fff" }}>
   {/* Heading and Subheading */}
   <div className="text-center mb-4">
     <h1 className="fw-bold mb-3" style={{ fontSize: 'clamp(1.8rem, 5vw, 2.7rem)' }}>
@@ -1273,7 +1273,7 @@ Mallet address
 
 {/* SECTION-12 */}
 
-<section className="container-fluid py-5" style={{ background: "#fff" }}>
+<section id="pricing" className="container-fluid py-5" style={{ background: "#fff" }}>
   {/* Heading and Subheading */}
   <div className="text-center mb-4">
     <h1 className="fw-bold mb-3" style={{ fontSize: '2.7rem' }}>
@@ -1351,7 +1351,7 @@ Mallet address
         </ul>
       </div>
       <div className="mt-auto text-center">
-        <button className="btn btn-dark fw-bold px-5 py-3" style={{ borderRadius: 10, fontSize: 18 }}>
+        <button className="btn crypto-btn px-5 py-3" style={{ borderRadius: 10, fontSize: 18 }}>
           GET STARTED &rarr;
         </button>
       </div>
@@ -1410,9 +1410,9 @@ Mallet address
         </ul>
       </div>
       <div className="mt-auto text-center">
-        <button className="btn fw-bold px-5 py-3" style={{
-          background: "#fff",
-          color: "#FF9900",
+        <button className="btn crypto-btn1 px-5 py-3" style={{
+          background: "#000",
+          color: "white",
           borderRadius: 10,
           fontSize: 18
         }}>
@@ -1426,11 +1426,11 @@ Mallet address
 
 {/* SECTION-13 */}
 
-<section className="container-fluid py-5" style={{ background: "#fafafa" }}>
+<section id="testimonials" className="container-fluid py-5" style={{ background: "#fafafa" }}>
   {/* Heading and Subheading */}
   <div className="text-center mb-4">
     <h1 className="fw-bold mb-3" style={{ fontSize: '2.7rem' }}>
-      What Our Clients Say
+      Satisfied Merchant Testimonials
     </h1>
     <div style={{
       width: 260,
@@ -1440,7 +1440,7 @@ Mallet address
       margin: '0 auto 1.5rem auto'
     }}></div>
     <p className="lead text-muted mb-4">
-      See how Coinremitter is making crypto payments easy and reliable for businesses worldwide.
+    Coinremitter is providing a great user experience, some of our clients have shared their kind words.
     </p>
   </div>
   {/* Swiper Carousel */}
