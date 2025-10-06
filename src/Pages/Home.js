@@ -1,5 +1,4 @@
-
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {  Autoplay } from 'swiper/modules';
 
@@ -71,6 +70,18 @@ import Footer from './Footer';
 
 const Home = () => {
 
+const swiperRef = useRef(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (swiperRef.current) {
+        swiperRef.current.slideNext(); // move to next card
+      }
+    }, 2500); 
+
+    
+    return () => clearInterval(interval);
+  }, []);
 
 
   return (
@@ -79,11 +90,11 @@ const Home = () => {
     {/* NAVBAR */}
       <NavBar />
 {/* SECTION-1 */}
-        <section className="relative sm:pb-14 pb-9 pt-6 hero-banner py-5">
+    <section className="relative sm:pb-14 pb-9 pt-6 hero-banner py-5">
       <div className="container mx-auto">
         {/* Heading + CTA */}
         <div className="text-center">
-          <h1 className="xl:text-6xl md:text-5xl sm:text-4xl text-[28px] xl:leading-tight md:leading-tight sm:leading-tight leading-tight font-extrabold text-black capitalize mb-6">
+          <h1 className="xl:text-6xl md:text-5xl sm:text-4xl text-[28px] font-extrabold text-black capitalize mb-6">
             <span className="inline-block border-b-2 border-amber-500">
               Crypto Payments
             </span>{" "}
@@ -94,77 +105,60 @@ const Home = () => {
           </p>
           <a
             className="primary-btn outline-btn mx-auto mb-6 inline-block px-6 py-3 font-semibold border-2 border-amber-500 rounded-full text-black hover:bg-amber-500 hover:text-white transition"
-            href="https://merchant.coinremitter.com/signup"
+            href="/signup"
           >
-            <button className="crypto-btn">Start Accepting Crypto Payments</button>
+            <button className="crypto-btn my-3">
+              Start Accepting Crypto Payments
+            </button>
           </a>
         </div>
 
         {/* Swiper Cards */}
         <div className="flex justify-center">
-          <Swiper
-            effect="cards"
-            grabCursor={true}
-            modules={[EffectCards]}
-            className="cardSwiper lg:w-[319px] sm:w-[288px] w-[180px] lg:h-[382px] sm:h-[345px] h-[230px]"
-          >
-            <SwiperSlide>
-              <img
-                src={card1}
-                alt="1 - Payment Method"
-                className="w-full h-full"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={card3}
-                alt="2 - Select Crypto"
-                className="w-full h-full"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={card4}
-                alt="3 - Deposit Address"
-                className="w-full h-full"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={card5}
-                alt="4 - Invoice #BTCXXXX"
-                className="w-full h-full"
-              />
-            </SwiperSlide>
-          </Swiper>
+            <Swiper
+      effect="cards"
+      grabCursor={true}
+      modules={[EffectCards]}
+      loop={true}
+      onSwiper={(swiper) => (swiperRef.current = swiper)}
+      className="cardSwiper sm:w-[500px] sm:h-[580px] w-[300px] h-[420px]"
+    >
+      <SwiperSlide><img src={card1} alt="1" className="img-fluid" /></SwiperSlide>
+      <SwiperSlide><img src={card3} alt="2" className="img-fluid" /></SwiperSlide>
+      <SwiperSlide><img src={card4} alt="3" className="img-fluid" /></SwiperSlide>
+      <SwiperSlide><img src={card5} alt="4" className="img-fluid" /></SwiperSlide>
+    </Swiper>
         </div>
-{/* <!-- Counters Section --> */}
-<div class="d-flex justify-content-between align-items-center mt-n5 position-relative z-1 bg-white bg-gradient px-3">
-  
-  {/* <!-- Counter 1 --> */}
-  <div class="text-center">
-    <div class="counter-clip">40569+</div>
-    <p class="counter-label">Active Users</p>
-  </div>
 
-  {/* <!-- Counter 2 --> */}
-  <div class="text-center">
-    <div class="counter-clip">19.54M+</div>
-    <p class="counter-label">Transactions</p>
-  </div>
+        {/* Counters Section */}
+        <div
+          className="
+            d-flex justify-content-between align-items-center 
+            flex-sm-row flex-column 
+            mt-n5 position-relative z-1 bg-white bg-gradient px-3 py-3
+          "
+        >
+          {/* Counter 1 */}
+          <div className="text-center mb-sm-0 mb-3" >
+            <div className="counter-clip">40569+</div>
+            <p className="counter-label">Active Users</p>
+          </div>
 
-</div>
-
+          {/* Counter 2 */}
+          <div className="text-center">
+            <div className="counter-clip">19.54M+</div>
+            <p className="counter-label">Transactions</p>
+          </div>
+        </div>
       </div>
     </section>
-    
 
         {/* SECTION-2 */}
     <section className="container-fluid py-5" style={{ backgroundColor: '#f8f9fa' }}>
       <div className="container">
         <div className="text-center mb-5">
           <h1 className="fw-bold mb-3" style={{ fontSize: '2.5rem' }}>
-            The Crypto API By Developers, <span style={{ color: '#FF9900' }}>For Developers</span>
+            The Crypto API By Developers, <span style={{ color: '#00CEC9' }}>For Developers</span>
           </h1>
           <p className="lead text-muted mb-4" style={{ fontSize: '1.25rem' }}>
             Integrate our easy to use APIs, libraries to support your programming language, and interactive documentation.
@@ -236,9 +230,9 @@ Mallet address
         </div>
 
         <div className="text-center mt-5">
-          <button className="btn    crypto-btn" style={{ borderRadius: '8px' }}>
+        <a href="https://api.coinremitter.com/docs">  <button className="btn    crypto-btn" style={{ borderRadius: '8px' }}>
             READ API DOCS
-          </button>
+          </button></a>
         </div>
       </div>
     </section>
@@ -324,7 +318,7 @@ Mallet address
 
   </div>
      <div className="d-flex flex-wrap justify-content-center gap-3 py-5 ">
-            <button className="btn crypto-btn" style={{ borderRadius: '8px' }}>LIST YOUR COIN</button>
+          <a href="/listyourcoin">  <button className="btn crypto-btn" style={{ borderRadius: '8px' }}>LIST YOUR COIN</button></a>
           </div>
 </section>
 
@@ -355,9 +349,10 @@ Mallet address
             <p className="mb-4">
               Showcase your plans with a customizable pricing table and let customers pay instantly in crypto.
             </p>
+            <a href="/pricingwidget">
             <button className="btn fw-bold mb-4 section-pricing-btn">
               INTEGRATE PRICING WIDGET <span style={{ fontSize: '1.2em' }}>→</span>
-            </button>
+            </button></a>
             <ul className="list-unstyled mt-3">
               <li className="mb-3 d-flex align-items-center">
                 <span className="me-2 section-pricing-list-icon">✔️</span>
@@ -394,9 +389,10 @@ Mallet address
             <p className="mb-4">
               Easily launch token presales and accept crypto payments directly with a plug-and-play widget.
             </p>
+            <a href="/presalwidget">
             <button className="btn fw-bold mb-4 section-pricing-btn">
               INTEGRATE PRESALE WIDGET <span style={{ fontSize: '1.2em' }}>→</span>
-            </button>
+            </button></a>
             <ul className="list-unstyled mt-3">
               <li className="mb-3 d-flex align-items-center">
                 <span className="me-2 section-pricing-list-icon">✔️</span>
@@ -433,9 +429,10 @@ Mallet address
             <p className="mb-4">
               Add a ready-to-use crypto payment button to your site and start accepting payments instantly.
             </p>
+            <a href="/paymentbuttonwidget">
             <button className="btn fw-bold mb-4 section-pricing-btn">
               INTEGRATE PAYMENT BUTTON <span style={{ fontSize: '1.2em' }}>→</span>
-            </button>
+            </button></a>
             <ul className="list-unstyled mt-3">
               <li className="mb-3 d-flex align-items-center">
                 <span className="me-2 section-pricing-list-icon">✔️</span>
@@ -472,9 +469,10 @@ Mallet address
             <p className="mb-4">
               Generate a standalone crypto payment page for customers who don’t want to integrate widgets.
             </p>
+            <a href="/paymentpagewidget">
             <button className="btn fw-bold mb-4 section-pricing-btn">
               CREATE PAYMENT PAGE <span style={{ fontSize: '1.2em' }}>→</span>
-            </button>
+            </button></a>
             <ul className="list-unstyled mt-3">
               <li className="mb-3 d-flex align-items-center">
                 <span className="me-2 section-pricing-list-icon">✔️</span>
@@ -519,7 +517,7 @@ Mallet address
       style={{
         width: 180,
         height: 4,
-        background: "#FF9900",
+        background: "#00CEC9",
         borderRadius: 2,
         margin: "0 auto 1.5rem auto",
       }}
@@ -530,27 +528,27 @@ Mallet address
   <div
     className="row justify-content-center m-0"
     style={{
-      border: "1px solid #FF9900",
+      border: "1px solid #00CEC9",
       borderRadius: "2px",
       overflow: "hidden",
     }}
   >
     {/* Row 1 */}
-<div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-end border-bottom border-warning">
+<div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-end border-bottom bord1">
   <h2 className="fw-bold" style={{ fontSize: "2.7rem" }}>0</h2>
   <div className="mt-2 text-center text-md-start" style={{ fontSize: "1.2rem" }}>
     Lost funds &amp; almost no downtime
   </div>
 </div>
 
-    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-end border-bottom border-warning">
+    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-end border-bottom bord1">
       <h2 className="fw-bold" style={{ fontSize: "2.7rem" }}>10+</h2>
       <div className="mt-2" style={{ fontSize: "1.2rem" }}>
         Supported cryptocurrencies
       </div>
     </div>
 
-    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-bottom border-warning">
+    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-bottom bord1">
       <h2 className="fw-bold" style={{ fontSize: "2.7rem" }}>99%</h2>
       <div className="mt-2" style={{ fontSize: "1.2rem" }}>
         Merchant Satisfaction Rate
@@ -558,14 +556,14 @@ Mallet address
     </div>
 
     {/* Row 2 */}
-    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-end border-warning">
+    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-end bord1">
       <h2 className="fw-bold" style={{ fontSize: "2.7rem" }}>130+</h2>
       <div className="mt-2" style={{ fontSize: "1.2rem" }}>
         Countries supported
       </div>
     </div>
 
-    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-end border-warning">
+    <div className="btn-hover1 col-12 col-md-4 d-flex flex-column justify-content-center align-items-center py-5 border-end bord1">
       <h2 className="fw-bold" style={{ fontSize: "2.7rem" }}>20+</h2>
       <div className="mt-2" style={{ fontSize: "1.2rem" }}>
         Industries associated
@@ -590,7 +588,7 @@ Mallet address
     <div className="col-12 col-md-4">
       <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm">
         <div className="d-flex flex-column flex-sm-row align-items-center align-items-md-start text-center text-md-start gap-3">
-          <SiCryptpad size={50} className="text-warning flex-shrink-0" />
+          <SiCryptpad size={50} className="fiescoolor flex-shrink-0" />
           <div>
             <h5 className="fw-bold mb-2">LOW CRYPTO PROCESSING FEE</h5>
             <p className="mb-0" style={{ fontSize: 16 }}>
@@ -604,7 +602,7 @@ Mallet address
     <div className="col-12 col-md-4">
       <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm">
         <div className="d-flex flex-column flex-sm-row align-items-center align-items-md-start text-center text-md-start gap-3">
-          <IoCodeSlashSharp size={50} className="text-warning flex-shrink-0" />
+          <IoCodeSlashSharp size={50} className="fiescoolor flex-shrink-0" />
           <div>
             <h5 className="fw-bold mb-2">OPEN-SOURCE PLUGINS</h5>
             <p className="mb-0" style={{ fontSize: 16 }}>
@@ -618,7 +616,7 @@ Mallet address
     <div className="col-12 col-md-4">
       <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm">
         <div className="d-flex flex-column flex-sm-row align-items-center align-items-md-start text-center text-md-start gap-3">
-          <SiFueler size={50} className="text-warning flex-shrink-0" />
+          <SiFueler size={50} className="fiescoolor flex-shrink-0" />
           <div>
             <h5 className="fw-bold mb-2">GAS STATION</h5>
             <p className="mb-0" style={{ fontSize: 16 }}>
@@ -633,7 +631,7 @@ Mallet address
     <div className="col-12 col-md-4">
       <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm">
         <div className="d-flex flex-column flex-sm-row align-items-center align-items-md-start text-center text-md-start gap-3">
-          <LiaFileInvoiceSolid size={50} className="text-warning flex-shrink-0" />
+          <LiaFileInvoiceSolid size={50} className="fiescoolor flex-shrink-0" />
           <div>
             <h5 className="fw-bold mb-2">INVOICE SERVICES</h5>
             <p className="mb-0" style={{ fontSize: 16 }}>
@@ -647,7 +645,7 @@ Mallet address
     <div className="col-12 col-md-4">
       <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm">
         <div className="d-flex flex-column flex-sm-row align-items-center align-items-md-start text-center text-md-start gap-3">
-          <MdOutlineSecurity size={50} className="text-warning flex-shrink-0" />
+          <MdOutlineSecurity size={50} className="fiescoolor flex-shrink-0" />
           <div>
             <h5 className="fw-bold mb-2">DEFENCE GRADE SECURITY</h5>
             <p className="mb-0" style={{ fontSize: 16 }}>
@@ -661,7 +659,7 @@ Mallet address
     <div className="col-12 col-md-4">
       <div className="btn-hover1 p-4 h-100 bg-light rounded-4 shadow-sm">
         <div className="d-flex flex-column flex-sm-row align-items-center align-items-md-start text-center text-md-start gap-3">
-          <MdOutlineApi size={50} className="text-warning flex-shrink-0" />
+          <MdOutlineApi size={50} className="fiescoolor flex-shrink-0" />
           <div>
             <h5 className="fw-bold mb-2">API &amp; DOCUMENTATION</h5>
             <p className="mb-0" style={{ fontSize: 16 }}>
@@ -725,13 +723,14 @@ Mallet address
       <h1 className="fw-bold mb-3" style={{ fontSize: '2.2rem' }}>
         Open-Source Plugins
       </h1>
-      <div style={{ width: 180, height: 4, background: '#FF9900', borderRadius: 2, marginBottom: '1.5rem' }}></div>
+      <div style={{ width: 180, height: 4, background: '#00CEC9', borderRadius: 2, marginBottom: '1.5rem' }}></div>
       <p className="mb-4" style={{ maxWidth: 500, fontSize: 16 }}>
         Coinremitter’s crypto payment plugins can be used to accept crypto payments directly on websites based on supported platforms. Installing plugins can enable crypto payment gateway services on your website.
       </p>
-      <button className="btn crypto-btn" style={{ background: '#FF9900', color: '#000', borderRadius: '10px', fontSize: 16, fontWeight: 700 }}>
+      <a href="/plugins">
+      <button className="btn crypto-btn" style={{ background: '#00CEC9', color: '#fff', borderRadius: '10px', fontSize: 16, fontWeight: 700 }}>
         KNOW MORE
-      </button>
+      </button></a>
     </div>
 
   </div>
@@ -766,7 +765,7 @@ Mallet address
       {/* Left Top Card */}
       <div className="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-end">
         <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-4" style={{ minWidth: 340, maxWidth: 400 }}>
-          <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
+          <span className="me-3" style={{ fontSize: 26, color: '#00CEC9' }}>
             <i className="bi bi-puzzle"><FaPuzzlePiece /></i>
           </span>
           <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
@@ -778,7 +777,7 @@ Mallet address
       {/* Right Top Card */}
       <div className="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-start">
         <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-4" style={{ minWidth: 340, maxWidth: 400 }}>
-          <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
+          <span className="me-3" style={{ fontSize: 36, color: '#00CEC9' }}>
             <i className="bi bi-arrow-repeat"><TiArrowRepeat /></i>
           </span>
           <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
@@ -792,7 +791,7 @@ Mallet address
       {/* Left Bottom Card */}
       <div className="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-end">
         <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-4" style={{ minWidth: 340, maxWidth: 400 }}>
-          <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
+          <span className="me-3" style={{ fontSize: 36, color: '#00CEC9' }}>
             <i className="bi bi-cash-stack"><BsCashStack /></i>
           </span>
           <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
@@ -805,7 +804,7 @@ Mallet address
       {/* Right Bottom Card */}
       <div className="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-start">
         <div className="bg-white shadow-sm rounded-3 d-flex align-items-center p-4" style={{ minWidth: 340, maxWidth: 400 }}>
-          <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
+          <span className="me-3" style={{ fontSize: 36, color: '#00CEC9' }}>
             <i className="bi bi-headset"><FaHeadset /></i>
           </span>
           <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 18 }}>
@@ -871,9 +870,10 @@ Mallet address
 
   {/* Button */}
   <div className="text-center mt-5">
+    <a href="/icopayment">
     <button className="btn crypto-btn" >
       LEARN MORE
-    </button>
+    </button></a>
   </div>
 </section>
 
@@ -890,7 +890,7 @@ Mallet address
           <div className="mx-auto mx-md-0" style={{
             width: 280,
             height: 4,
-            background: '#FF9900',
+            background: '#00CEC9',
             borderRadius: 2,
           }}></div>
         </div>
@@ -905,7 +905,7 @@ Mallet address
           {/* Travel & Hospitality */}
           <div className="col-12 col-sm-6">
             <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#00CEC9' }}>
                 <i className="bi bi-suitcase-lg"><FaSuitcaseRolling /></i>
               </span>
               <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
@@ -916,7 +916,7 @@ Mallet address
           {/* Technology & Software */}
           <div className="col-12 col-sm-6">
             <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#00CEC9' }}>
                 <i className="bi bi-pc-display"><GrTechnology /></i>
               </span>
               <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
@@ -927,7 +927,7 @@ Mallet address
           {/* Food & Beverage */}
           <div className="col-12 col-sm-6">
             <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#00CEC9' }}>
                 <i className="bi bi-cup-straw"><IoFastFoodSharp /></i>
               </span>
               <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
@@ -938,7 +938,7 @@ Mallet address
           {/* Real Estate */}
           <div className="col-12 col-sm-6">
             <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#00CEC9' }}>
                 <i className="bi bi-house-door"><MdMapsHomeWork /></i>
               </span>
               <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
@@ -949,7 +949,7 @@ Mallet address
           {/* E-Commerce */}
           <div className="col-12 col-sm-6">
             <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#00CEC9' }}>
                 <i className="bi bi-cart-check"><FaCartShopping /></i>
               </span>
               <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
@@ -960,7 +960,7 @@ Mallet address
           {/* Media & Entertainment */}
           <div className="col-12 col-sm-6">
             <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#00CEC9' }}>
                 <i className="bi bi-collection-play"><MdPermMedia /></i>
               </span>
               <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
@@ -971,7 +971,7 @@ Mallet address
           {/* Online Gaming */}
           <div className="col-12 col-sm-6">
             <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#00CEC9' }}>
                 <i className="bi bi-controller"><SiPcgamingwiki /></i>
               </span>
               <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
@@ -982,7 +982,7 @@ Mallet address
           {/* Medical & Healthcare */}
           <div className="col-12 col-sm-6">
             <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-3" style={{ minHeight: 80 }}>
-              <span className="me-3" style={{ fontSize: 32, color: '#FF9900' }}>
+              <span className="me-3" style={{ fontSize: 32, color: '#00CEC9' }}>
                 <i className="bi bi-heart-pulse"><FaFileMedical /></i>
               </span>
               <span className="fw-semibold" style={{ fontStyle: 'italic', fontSize: 'clamp(14px, 3.5vw, 18px)' }}>
@@ -1016,7 +1016,7 @@ Mallet address
     <div style={{
       width: 180,
       height: 4,
-      background: '#FF9900',
+      background: '#00CEC9',
       borderRadius: 2,
       margin: '0 auto 1.5rem auto'
     }}></div>
@@ -1044,7 +1044,7 @@ Mallet address
         <div className="mb-3 affiliation-icon" style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)', color: '#bbb' }}>
           <i className="bi bi-person-plus"><FaUserFriends /></i>
         </div>
-        <h5 className="fw-bold mb-2" style={{ color: '#FF9900', fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>INVITE USERS</h5>
+        <h5 className="fw-bold mb-2" style={{ color: '#00CEC9', fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>INVITE USERS</h5>
         <p className="mb-0" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1rem)' }}>
           Let your network know about Coinremitter's seamless crypto payment services
         </p>
@@ -1058,7 +1058,7 @@ Mallet address
         }}
       >
         <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="0,0 40,30 0,60" fill="#FF9900" />
+          <polygon points="0,0 40,30 0,60" fill="#00CEC9" />
         </svg>
       </span> 
       <span className="position-absolute bottom-0 end-0" style={{ 
@@ -1083,7 +1083,7 @@ Mallet address
         <div className="mb-3 affiliation-icon" style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)', color: '#bbb' }}>
           <i className="bi bi-handshake"><FaHandsHelping /></i>
         </div>
-        <h5 className="fw-bold mb-2" style={{ color: '#FF9900', fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>THEY JOIN</h5>
+        <h5 className="fw-bold mb-2" style={{ color: '#00CEC9', fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>THEY JOIN</h5>
         <p className="mb-0" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1rem)' }}>
           Ask your network to click the link shared by you & join Coinremitter.
         </p>
@@ -1097,7 +1097,7 @@ Mallet address
         }}
       >
         <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="0,0 40,30 0,60" fill="#FF9900" />
+          <polygon points="0,0 40,30 0,60" fill="#00CEC9" />
         </svg>
       </span> 
       <span className="position-absolute bottom-0 end-0" style={{ 
@@ -1122,7 +1122,7 @@ Mallet address
         <div className="mb-3 affiliation-icon" style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)', color: '#bbb' }}>
           <i className="bi bi-people"><FaUserCheck /></i>
         </div>
-        <h5 className="fw-bold mb-2" style={{ color: '#FF9900', fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>THEY USE</h5>
+        <h5 className="fw-bold mb-2" style={{ color: '#00CEC9', fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>THEY USE</h5>
         <p className="mb-0" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1rem)' }}>
           Ask your referrals to accept crypto payments using Coinremitter.
         </p>
@@ -1136,7 +1136,7 @@ Mallet address
         }}
       >
         <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="0,0 40,30 0,60" fill="#FF9900" />
+          <polygon points="0,0 40,30 0,60" fill="#00CEC9" />
         </svg>
       </span> 
       <span className="position-absolute bottom-0 end-0" style={{ 
@@ -1160,7 +1160,7 @@ Mallet address
         <div className="mb-3 affiliation-icon" style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)', color: '#bbb' }}>
           <i className="bi bi-diagram-3"><GiTakeMyMoney /></i>
         </div>
-        <h5 className="fw-bold mb-2" style={{ color: '#FF9900', fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>YOU EARN</h5>
+        <h5 className="fw-bold mb-2" style={{ color: '#00CEC9', fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>YOU EARN</h5>
         <p className="mb-0" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1rem)' }}>
           Get up to 75% of your referral's withdrawal fees as a referral bonus.
         </p>
@@ -1174,7 +1174,7 @@ Mallet address
         }}
       >
         <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="0,0 40,30 0,60" fill="#FF9900" />
+          <polygon points="0,0 40,30 0,60" fill="#00CEC9" />
         </svg>
       </span> 
       <span className="position-absolute bottom-0 end-0" style={{ 
@@ -1212,7 +1212,7 @@ Mallet address
       <div style={{
         width: 180,
         height: 4,
-        background: '#FF9900',
+        background: '#00CEC9',
         borderRadius: 2,
         margin: '1rem 0 1.5rem 0'
       }}></div>
@@ -1224,44 +1224,44 @@ Mallet address
         {/* Card 1 */}
         <div className="col-12 col-md-6">
           <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-4 h-100">
-            <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
+            <span className="me-3" style={{ fontSize: 36, color: '#00CEC9' }}>
               <i className="bi bi-coin"><GiTwoCoins /></i>
             </span>
             <span>
-              <span className="fw-bold" style={{ color: "#FF9900" }}>Support of major<br />cryptocurrencies</span>
+              <span className="fw-bold" style={{ color: "#00CEC9" }}>Support of major<br />cryptocurrencies</span>
             </span>
           </div>
         </div>
         {/* Card 2 */}
         <div className="col-12 col-md-6">
           <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-4 h-100">
-            <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
+            <span className="me-3" style={{ fontSize: 36, color: '#00CEC9' }}>
               <i className="bi bi-bank"><RiBankFill /></i>
             </span>
             <span>
-              <span className="fw-bold" style={{ color: "#FF9900" }}>No ID and no bank<br />account required</span>
+              <span className="fw-bold" style={{ color: "#00CEC9" }}>No ID and no bank<br />account required</span>
             </span>
           </div>
         </div>
         {/* Card 3 */}
         <div className="col-12 col-md-6">
           <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-4 h-100">
-            <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
+            <span className="me-3" style={{ fontSize: 36, color: '#00CEC9' }}>
               <i className="bi bi-globe"><FaGlobe /></i>
             </span>
             <span>
-              <span className="fw-bold" style={{ color: "#FF9900" }}>Global, safe, and<br />anonymous</span>
+              <span className="fw-bold" style={{ color: "#00CEC9" }}>Global, safe, and<br />anonymous</span>
             </span>
           </div>
         </div>
         {/* Card 4 */}
         <div className="col-12 col-md-6">
           <div className="d-flex align-items-center bg-white shadow-sm rounded-3 p-4 h-100">
-            <span className="me-3" style={{ fontSize: 36, color: '#FF9900' }}>
+            <span className="me-3" style={{ fontSize: 36, color: '#00CEC9' }}>
               <i className="bi bi-headset"><IoHeadsetSharp /></i>
             </span>
             <span>
-              <span className="fw-bold" style={{ color: "#FF9900" }}>24x7 support for<br />technical issues</span>
+              <span className="fw-bold" style={{ color: "#00CEC9" }}>24x7 support for<br />technical issues</span>
             </span>
           </div>
         </div>
@@ -1282,7 +1282,7 @@ Mallet address
     <div style={{
       width: 260,
       height: 4,
-      background: '#FF9900',
+      background: '#00CEC9',
       borderRadius: 2,
       margin: '0 auto 1.5rem auto'
     }}></div>
@@ -1351,13 +1351,14 @@ Mallet address
         </ul>
       </div>
       <div className="mt-auto text-center">
+        <a href="/signup">
         <button className="btn crypto-btn px-5 py-3" style={{ borderRadius: 10, fontSize: 18 }}>
           GET STARTED &rarr;
-        </button>
+        </button></a>
       </div>
     </div>
     {/* Premium Plan */}
-    <div className="col-12 col-lg-6 d-flex flex-column p-4" style={{ background: "#FF9900", color: "#fff", borderTopRightRadius: 12, borderBottomRightRadius: 12, minHeight: 420 }}>
+    <div className="col-12 col-lg-6 d-flex flex-column p-4" style={{ background: "#00CEC9", color: "#fff", borderTopRightRadius: 12, borderBottomRightRadius: 12, minHeight: 420 }}>
       <h4 className="fw-bold mb-2">Premium Plan</h4>
       <div className="d-flex align-items-end mb-3">
         <span className="fw-bold" style={{ fontSize: 48 }}>$99.99</span>
@@ -1410,6 +1411,7 @@ Mallet address
         </ul>
       </div>
       <div className="mt-auto text-center">
+        <a href="/signup">
         <button className="btn crypto-btn1 px-5 py-3" style={{
           background: "#000",
           color: "white",
@@ -1417,7 +1419,7 @@ Mallet address
           fontSize: 18
         }}>
           BUY NOW &rarr;
-        </button>
+        </button></a>
       </div>
     </div>
   </div>
@@ -1435,7 +1437,7 @@ Mallet address
     <div style={{
       width: 260,
       height: 4,
-      background: '#FF9900',
+      background: '#00CEC9',
       borderRadius: 2,
       margin: '0 auto 1.5rem auto'
     }}></div>
@@ -1541,7 +1543,7 @@ Mallet address
     <div style={{
       width: 150,
       height: 4,
-      background: '#FF9900',
+      background: '#00CEC9',
       borderRadius: 2,
       margin: '0 auto 1.5rem auto'
     }}></div>

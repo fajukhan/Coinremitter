@@ -15,6 +15,13 @@ import Topcrypto from "./Pages/Topcrypto";
 import InvoiceServices from "./Pages/InvoiceServices";
 import PricingWidget from "./Pages/PricingWidget";
 import PresaleWidget from "./Pages/PresaleWidget";
+import PaymentButtonWidget from "./Pages/PaymentButtonWidget";
+import Paymentpagewidget from "./Pages/Paymentpagewidget";
+import Termsofservices from "./Pages/Termsofservices";
+import RiskWarm from "./Pages/RiskWarm";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import CookiesPolicy from "./Pages/CookiesPolicy";
+import IcoPayment from "./Pages/IcoPayment";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -109,6 +116,52 @@ const App = () => {
     },
 
 
+          
+   {
+      path: "paymentbuttonwidget",
+      element: <PaymentButtonWidget />
+    },
+
+
+     {
+      path: "paymentpagewidget",
+      element: <Paymentpagewidget />
+    },
+
+
+    
+     {
+      path: "termsofsevices",
+      element: <Termsofservices />
+    },
+
+
+    
+     {
+      path: "riskwarm",
+      element: <RiskWarm />
+    },
+
+
+    
+     {
+      path: "privarypolicy",
+      element: <PrivacyPolicy />
+    },
+
+
+     
+     {
+      path: "cookiespolicy",
+      element: <CookiesPolicy />
+    },
+
+
+       
+     {
+      path: "icopayment",
+      element: <IcoPayment />
+    },
 
 
 

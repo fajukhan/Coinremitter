@@ -58,7 +58,7 @@ const Plugins = () => {
     <section id="section-1" class="py-5   section-1">
         <div className='container'>
   <div class="row justify-content-center text-center ">
-    <div class="col-12 col-md-10 col-lg-8">
+    <div class="col-12 col-md-10 col-lg-12">
       {/* <!-- First Heading --> */}
       <h2 class="fw-bold display-5 mb-4 text-dark">
         CoinRemitter Integration
@@ -70,7 +70,7 @@ const Plugins = () => {
       </p>
 
       {/* <!-- Third Button --> */}
-      <a href="/" class="btn btn-lg px-4 py-2 fw-semibold text-uppercase crypto-btn">
+      <a href="/signup" class="btn btn-lg px-4 py-2 fw-semibold text-uppercase crypto-btn">
         Get Started ➝
       </a>
     </div>
@@ -193,9 +193,10 @@ const Plugins = () => {
           </p>
 
           {/* Button */}
-          <button className="btn  fw-bold px-4 py-2 crypto-btn">
+          <a href="https://api.coinremitter.com">
+          <button className="btn btn-lg  fw-bold px-4 py-2 crypto-btn">
             INTEGRATION PROCESS
-          </button>
+          </button></a>
         </div>
       </div>
     </section>

@@ -5,9 +5,7 @@
   margin-right: 40px;
 }
 
-.nav-link:hover {
-  color: #f59e0b !important ;
-}
+
 
 .navlins-3 {
   color: black !important;
@@ -48,11 +46,7 @@
 }
 
 /* Button Hover */
-.btn-hover1:hover {
-  background-color: #f59e0b !important;
-  color: white;
-  outline: none !important;
-}
+
 
 
 /* Dropdown Animation */
@@ -99,38 +93,16 @@
 .signup-btn:hover {
   background-color: #d88f00; /* darker shade on hover */
 }
-.crypto-btn {
-  font-weight: bold;
-  padding: 18px 40px;
-  background: transparent;
-  color: #000;
-  border: none;
-  position: relative;
-  cursor: pointer;
-  clip-path: polygon(
-    5% 0%, 95% 0%,
-    100% 25%, 100% 75%,
-    95% 100%, 5% 100%,
-    0% 75%, 0% 25%
-  );
-  z-index: 1; /* text upar dikhane ke liye */
-}
-
-.crypto-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  clip-path: inherit;
-  background-color: #f5a200;
-  z-index: -1;   /* background neeche bhej diya */
-}
 
 
+
+/* Crypto Buttons with Signup-style Gradient */
+.crypto-btn,
 .crypto-btn1 {
   font-weight: bold;
   padding: 18px 40px;
-  background: transparent;
-  color: #000;
+  background: linear-gradient(135deg, var(--cr-primary-start), var(--cr-primary-end));
+  color: #fff;
   border: none;
   position: relative;
   cursor: pointer;
@@ -140,17 +112,27 @@
     95% 100%, 5% 100%,
     0% 75%, 0% 25%
   );
-  z-index: 1; /* text upar dikhane ke liye */
+  z-index: 1; /* text on top */
+  transition: all 0.3s ease;
 }
 
+.crypto-btn::before,
 .crypto-btn1::before {
   content: "";
   position: absolute;
   inset: 0;
   clip-path: inherit;
-  background-color: #000;
-  z-index: -1;   /* background neeche bhej diya */
+  z-index: -1; /* background below text */
 }
+
+/* Hover effect matching signup-btn */
+.crypto-btn:hover,
+.crypto-btn1:hover {
+  background: linear-gradient(135deg, var(--cr-primary-end), var(--cr-primary-start));
+  transform: scale(1.05);
+  color: #fff;
+}
+
 
 
 /* Hero-Banner */
@@ -170,30 +152,30 @@
 }
 
 
-
-
 /* Counter badge using clip-path to create bottom pointer */
-.counter-clip{
-  display:inline-block;
-  padding: 28px 34px;
+.counter-clip {
+  display: inline-block;
+ padding: 50px 60px;
+ text-align: center;
   font-weight: 800;
-  color:#fff;
-  background:#000;
-  font-size: 24px;
-  line-height:1;
+  color: #fff;
+  background: #000;
+  font-size: 34px;
+  line-height: 1;
   -webkit-clip-path: polygon(
     0 0, 100% 0, 100% 74%, 60% 74%, 80% 100%, 40% 74%, 0 74%
   );
   clip-path: polygon(
     0 0, 100% 0, 100% 74%, 60% 74%, 50% 100%, 40% 74%, 0 74%
   );
+  
 }
 
 /* label below */
-.counter-label{
-  margin-top:10px;
-  color:#111;
-  font-size:15px;
+.counter-label {
+  margin-top: 10px;
+  color: #111;
+  font-size: 25px;
 }
 
 
@@ -349,7 +331,7 @@
 .section3-underline {
   width: 180px;
   height: 4px;
-  background: #FF9900;
+  background: #00CEC9;
   margin: 0 auto 24px auto;
   border-radius: 2px;
 }
@@ -384,7 +366,7 @@
 .section-pricing-underline {
   width: 180px;
   height: 4px;
-  background: #FF9900;
+  background: #00CEC9;
   border-radius: 2px;
   margin: 0 auto 1rem auto;
 }
@@ -394,16 +376,16 @@
   margin-right: auto;
 }
 .section-pricing-list-icon {
-  color: #FF9900;
+  color: #00CEC9;
   font-size: 1.5rem;
 }
 .section-pricing-btn {
-  background: #FF9900;
+  background: #00CEC9;
   color: #fff;
   border-radius: 8px;
 }
 .section-pricing-btn:hover {
-  background: #e68900;
+  background: #00CEC9;
   color: #fff;
 }
 /* Card hover effect */
@@ -415,6 +397,16 @@
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
+
+
+/* SECTION-5 */
+.bord1{
+  border-color: #00CEC9 !important;
+}
+
+.fiescoolor {
+  color: #00CEC9 !important;
+}
 
 
 
@@ -432,13 +424,13 @@
   transform: translateY(-10px) scale(1.03);
   box-shadow: 0 8px 32px rgba(255,153,0,0.15), 0 2px 8px rgba(0,0,0,0.08);
   z-index: 2;
-  border-color: #FF9900 !important;
+  border-color: #00CEC9 !important;
 }
 .affiliation-card .affiliation-icon {
   transition: color 0.2s;
 }
 .affiliation-card:hover .affiliation-icon {
-  color: #FF9900 !important;
+  color: #00CEC9 !important;
 }
 
 
@@ -456,7 +448,7 @@
 }
 
 .footer-link a:hover {
-  color: #FF9900;
+  color: #00CEC9 !important;
   transition: color 0.3s ease;
 }
 
@@ -578,7 +570,7 @@
     left: 0;
     width: 120px;
     height: 4px;
-    background-color: orange;
+    background-color: #00CEC9;
     border-radius: 2px;
   }
 
@@ -598,7 +590,7 @@
 .underline {
   width: 80px;
   height: 3px;
-  background: #f59e0b;
+  background: #00CEC9;
   margin: 8px auto 0;
   border-radius: 5px;
 }
@@ -618,7 +610,7 @@
 }
 
 .arrow-btn:hover {
-  background: #f59e0b;
+  background: #00CEC9;
   color: #fff;
 }
 
@@ -647,9 +639,9 @@
 }
 
 .category-btn:hover {
-  background: #f59e0b;
+  background: #00CEC9;
   color: #fff;
-  border-color: #f59e0b;
+  border-color: #00CEC9;
 }
 
 /* Search Box */
@@ -670,7 +662,7 @@
 }
 
 .search-box input:focus {
-  border-color: #f59e0b;
+  border-color: #00CEC9;
   box-shadow: 0px 0px 6px rgba(245, 158, 11, 0.4);
 }
 
@@ -710,7 +702,7 @@
 .blog-category {
   font-size: 12px;
   font-weight: 600;
-  color: #f59e0b;
+  color: #00CEC9 !important;
   margin: 6px 0;
   text-transform: uppercase;
 }
@@ -719,12 +711,12 @@
   object-fit: cover;
 }
 .btn-warning {
-  background: #f59e0b;
+  background: #00CEC9 !important;
   border: none;
   transition: 0.3s;
 }
 .btn-warning:hover {
-  background: #d97706;
+  background: #00CEC9 !important;
 }
 
 
@@ -733,18 +725,18 @@
 
 
 .section-heading {
-  border-left: 4px solid #f59e0b;
+  border-left: 4px solid #00CEC9 !important;
   padding-left: 10px;
 }
 
 .browse-more {
-  color: #f59e0b;
+  color: #00CEC9 !important;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s;
 }
 .browse-more:hover {
-  color: #d97706;
+  color: #00CEC9 !important;
 }
 
 .blog-card {
@@ -766,7 +758,7 @@
 .blog-category {
   font-size: 12px;
   font-weight: 600;
-  color: #f59e0b;
+  color: #00CEC9 !important;
   margin: 6px 0;
   text-transform: uppercase;
 }
@@ -783,12 +775,12 @@
   position: absolute;
   bottom: -8px;
   top: 100%;
-  left: 50%;
+  left: 42%;
   transform: translateX(10%);
 
   width: 120px;
   height: 4px;
-  background-color: orange;
+  background-color: #00CEC9;
   border-radius: 2px;
 }
 
@@ -871,7 +863,7 @@
 .faq-underline {
   width: 120px;
   height: 3px;
-  background: orange;
+  background: #00CEC9;
   margin-top: 10px;
 }
 
@@ -898,7 +890,7 @@
 }
 
 .faq-icon {
-  color: orange;
+  color: #00CEC9;
   font-size: 18px;
   transition: transform 0.3s ease;
 }
@@ -906,14 +898,14 @@
 /* Rotate Plus → Cross when active */
 .rotate-icon {
   transform: rotate(45deg);
-  color: #ff6600;
+  color: #00CEC9;
 }
 
 .faq-answer {
   margin-top: 10px;
   padding: 10px 15px;
   background: #fafafa;
-  border-left: 3px solid orange;
+  border-left: 3px solid #00CEC9;
   font-size: 15px;
   color: #444;
 }
@@ -1047,6 +1039,27 @@
   color: var(--text-dark);
   margin-bottom: 20px;
   line-height: 1.2;
+}
+
+
+.section-heading-1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #00CEC9;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+ .warning-note {
+            background-color: #fff3cd;
+            border-left: 4px solid #00CEC9;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+.cls-1{
+  color: #000 !important;
 }
 
 .accent-text {
@@ -1239,6 +1252,42 @@
 
 
 
+.custom-hr {
+  width: 80px;
+  height: 4px;
+  background-color: #f7931a; /* orange line */
+  border: none;
+  margin-left: 0;
+}
+
+.custom-btn {
+  background-color: #f7931a;
+  color: #fff;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  border: none;
+}
+
+.custom-btn:hover {
+  background-color: #d97d0e;
+  transform: translateY(-2px);
+}
+
+
+
+
+
+.feature-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 
 
 
@@ -1257,6 +1306,37 @@
 
 
 
+.hexagon-wrap {
+  position: relative;
+  display: inline-block;
+  background-color: #808080; /* card background */
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.hexagon-wrap:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.hexagon-wrap svg {
+  width: 100%;
+  height: auto;
+}
+
+.hex-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
 
 
 
@@ -1269,11 +1349,411 @@
 
 
 
+.section-heading {
+    
+      color: #00CEC9;
+      display: inline-block;
+      padding: 6px 14px;
+      font-weight: 700;
+    }
+    .dot-icon {
+      color: darkblue;
+      font-size: 0.6rem;
+      margin-right: 8px;
+    }
+    h6 {
+      font-weight: 600;
+    }
+    p {
+      color: #6c757d; /* muted text */
+    }
+
+
+
+
+    /* Section2.css */
+
+/* Section spacing & heading */
+.section-why {
+  background: #ffffff;
+}
+
+/* Big heading styling */
+.heading-big {
+  font-size: 2.25rem; /* adjust if needed */
+  line-height: 1.05;
+}
+
+/* underline bar under heading */
+.underline {
+  width: 160px;
+  height: 4px;
+  background: transparent;
+  border: 0;
+  margin-left: 0;
+  margin-bottom: 1rem;
+  box-shadow: none;
+  position: relative;
+}
+.underline::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: #00CEC9; /* accent color */
+  border-radius: 4px;
+}
+
+/* Features list */
+.features-list {
+  margin-top: 0.5rem;
+}
+
+/* Feature item */
+.feature-item {
+  gap: 0.75rem;
+}
+
+/* Icon wrap: fixed square to hold the hexagon SVG and the icon */
+.icon-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  display: inline-block;
+  -webkit-mask-image: none;
+}
+
+/* SVG hexagon scaled to fit container */
+.hex-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 64px;
+  height: 64px;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgba(100, 100, 100, 0.12)); /* soft gray shadow for the border */
+}
+
+/* Icon inner: center icon inside hexagon */
+.icon-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px; /* icon size */
+  color: #ffc107; /* icon fill color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: rgba(255, 193, 7, 0.05); /* light tinted background inside hex */
+  box-shadow: 0 6px 18px rgba(99, 99, 99, 0.12); /* gray box shadow */
+}
+
+/* Text next to icon */
+.feature-text {
+  color: #222;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  margin-top: 3px; /* small vertical alignment tweak */
+}
+
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+  .heading-big {
+    font-size: 1.6rem;
+  }
+  .icon-wrap {
+    width: 56px;
+    height: 56px;
+  }
+  .hex-svg {
+    width: 56px;
+    height: 56px;
+  }
+  .icon-inner {
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Make the image slightly responsive and constrained */
+.why-image {
+  max-width: 570px;
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  filter: drop-shadow(0 10px 30px rgba(80,80,80,0.08));
+}
+
+
+
+.section-steps {
+  background: #fff;
+}
+
+.hex-card {
+  position: relative;
+  width: 280px;
+  height: 320px;
+}
+
+.hex-shape {
+  width: 100%;
+  height: 100%;
+}
+
+.hex-content {
+  position: absolute;
+  top: 10;
+  left: 10;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.step-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #f7931a; /* orange accent */
+}
+
+.step-text {
+  font-size: 1rem;
+  font-style: italic;
+  color: #333;
+}
+
+.step-icon {
+  font-size: 2.5rem;
+  opacity: 0.2;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .hex-card {
+    width: 220px;
+    height: 260px;
+  }
+  .step-number {
+    font-size: 2rem;
+  }
+  .step-text {
+    font-size: 0.95rem;
+  }
+  .step-icon {
+    font-size: 2rem;
+  }
+}
 
 
 
 
 
+
+.feature-card {
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.btn-outline-primary {
+  border-color: #f7931a;
+  color: #f7931a;
+}
+
+.btn-outline-primary:hover {
+  background-color: #f7931a;
+  border-color: #f7931a;
+  color: #fff;
+}
+
+
+      .crypto-section {
+            padding: 80px 20px;
+            background-color: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .crypto-grid {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .crypto-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .crypto-card {
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+        }
+
+        .crypto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #f7931a;
+        }
+
+        .crypto-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            border-radius: 50%;
+            background-color: rgba(247, 147, 26, 0.05);
+            padding: 10px;
+        }
+
+        .crypto-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .crypto-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .crypto-card:hover .crypto-name {
+            color: #f7931a;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .crypto-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .crypto-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .crypto-grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .crypto-section {
+                padding: 60px 15px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .crypto-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .crypto-grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .crypto-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .crypto-grid-3 {
+                grid-template-columns: 1fr;
+                max-width: 200px;
+            }
+            
+            .crypto-card {
+                padding: 15px 5px;
+                min-height: 120px;
+            }
+            
+            .crypto-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .crypto-name {
+                font-size: 0.8rem;
+            }
+        }
 
 
 
@@ -1473,6 +1953,12 @@
   background-color: #ccc;
   z-index: 1;
 }
+
+
+
+
+/* NAVBAR */
+
 
 
 

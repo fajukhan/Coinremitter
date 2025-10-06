@@ -1,7 +1,7 @@
 import React from "react";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import logo from "../Image/logo.svg";
+import firstlogo1 from '../Image/firstlogo1.svg';
 
 const SignInPage = () => {
   return (
@@ -19,8 +19,8 @@ const SignInPage = () => {
       >
         {/* Logo */}
         <div className="text-center mb-2">
-          <img src={logo} alt="Logo" style={{ height: "45px" }} />
-          <h6 className="text-warning fw-bold mt-2 mb-1">
+          <img src={firstlogo1} alt="Logo" style={{ height: "45px" }} />
+          <h6 className="fw-bold mt-2 mb-1" style={{ color: "#00CEC9" }}>
             Coinremitter - Crypto Gateway
           </h6>
           <p className="text-muted small mb-2">
@@ -29,12 +29,14 @@ const SignInPage = () => {
         </div>
 
         {/* Heading */}
-        <h5 className="text-center fw-bold text-warning mb-3">SIGN IN</h5>
+        <h5 className="text-center fw-bold mb-3" style={{ color: "#00CEC9" }}>
+          SIGN IN
+        </h5>
 
         {/* Email */}
         <div className="input-group input-group-sm mb-2">
           <span className="input-group-text bg-white">
-            <FaEnvelope size={16} color="#f7a400" />
+            <FaEnvelope size={16} color="#00CEC9" />
           </span>
           <input
             type="email"
@@ -46,7 +48,7 @@ const SignInPage = () => {
         {/* Password */}
         <div className="input-group input-group-sm mb-2">
           <span className="input-group-text bg-white">
-            <FaLock size={16} color="#f7a400" />
+            <FaLock size={16} color="#00CEC9" />
           </span>
           <input
             type="password"
@@ -65,7 +67,12 @@ const SignInPage = () => {
 
         {/* Sign In Button */}
         <div className="d-grid mb-2">
-          <button className="btn btn-warning fw-bold btn-sm">SIGN IN</button>
+          <button
+            className="btn fw-bold btn-sm"
+            style={{ background: "#00CEC9", color: "#fff" }}
+          >
+            SIGN IN
+          </button>
         </div>
 
         {/* OR Divider */}
@@ -81,11 +88,11 @@ const SignInPage = () => {
         {/* Links */}
         <div className="text-center small">
           <p className="mb-0">Create Account</p>
-          <a href="/" className="text-warning fw-bold">
+          <a href="/" style={{ color: "#00CEC9", fontWeight: "bold" }}>
             Sign Up
           </a>{" "}
           |{" "}
-          <a href="/" className="text-warning fw-bold">
+          <a href="/" style={{ color: "#00CEC9", fontWeight: "bold" }}>
             Forgot Password?
           </a>
         </div>

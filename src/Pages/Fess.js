@@ -15,10 +15,10 @@ import spicepay from '../Image/spicepay.png';
 import opennode from '../Image/opennode.png';
 import alfacoin from '../Image/alfacoin.png';
 import Blockonomics from '../Image/Blockonomics.png';
-import coinremiter from '../Image/coinremiter.png';
+import firstlogo1 from '../Image/firstlogo1.svg';
 import usdterc20 from '../Image/usdterc20.png';
 import usdttrc20 from '../Image/usdttrc20.png';
-import { FaGasPump } from "react-icons/fa";
+
 import Footer from './Footer';
 
 
@@ -81,7 +81,7 @@ const Fess = () => {
     {/* <!-- SECTION 1 --> */}
 <section class="container-fluid section-1">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-lg-6">
+    <div class="col-12 col-md-8 col-lg-10">
       <h1>Transparent Fee Structure</h1>
       <p>Explore the transparent fee structure of Coinremitter. Know transaction and processing fees on different crypto transactions. Scroll down to go to the crypto fee calculator.</p>
     </div>
@@ -90,330 +90,322 @@ const Fess = () => {
 
 
 
-  {/* <!-- SECTION 2 --> */}
-<section className="container px-3 px-md-5 section-2">
-  <h1 className="fw-bold mb-3" style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)' }}>
-    Fees <span style={{color: 'orange'}}>Chart</span>
-  </h1>
-  <p className="mb-4" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1rem)' }}>
-    We are the one who provides the lowest transaction fee. We have no other hidden charges, nor we charge for the deposite fee, except for the transaction and processing fees which are down below.
-  </p>
-
-  {/* Table Header - Hidden on small screens, shown on medium and up */}
-  <div className="d-none d-md-flex row table-header align-items-start text-center justify-content-between py-2 border-bottom">
-    <div className="col-2 text-start">CRYPTOCURRENCIES</div>
-    <div className="col-2">SYMBOL</div>
-    <div className="col-2">TRANSACTION FEE</div>
-    <div className="col-2">PROCESSING FEE</div>
-    <div className="col-2 text-end">MINIMUM PAYMENT <span style={{color:'red'}}>&#9432;</span></div>
+{/* <!-- SECTION 2 - Large Screen Optimized --> */}
+<section className="container px-3 px-lg-5 section-2 py-5">
+  {/* Header */}
+  <div className="text-center mb-5">
+    <h1 className="fw-bold display-4 mb-3">
+      Fees <span style={{color: '#00CEC9'}}>Chart</span>
+    </h1>
+    <p className="lead text-muted mx-auto" style={{maxWidth: '800px'}}>
+      We are the one who provides the lowest transaction fee. We have no other hidden charges, 
+      nor we charge for the deposit fee, except for the transaction and processing fees which are down below.
+    </p>
   </div>
 
-  {/* Mobile Table Header - Only shown on small screens */}
-  <div className="d-md-none row mb-2">
-    <div className="col-12">
-      <h6 className="text-muted">CRYPTOCURRENCIES FEES</h6>
-    </div>
-  </div>
+  {/* Main Table - Large Screen Only */}
+  <div className="d-none d-lg-block">
+    <div className="table-responsive">
+      <table className="table table-hover align-middle">
+        <thead className="table-dark tableth1">
+          <tr className='tableth1'>
+            <th className="px-4 py-3 text-start tableth1">CRYPTOCURRENCIES</th>
+            <th className="px-4 py-3 text-center tableth1">SYMBOL</th>
+            <th className="px-4 py-3 text-center tableth1">TRANSACTION FEE</th>
+            <th className="px-4 py-3 text-center tableth1">PROCESSING FEE</th>
+            <th className="px-4 py-3 text-end tableth1">MINIMUM PAYMENT</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* Bitcoin */}
+          <tr>
+            <td className="px-4 py-3">
+              <div className="d-flex align-items-center">
+                <img src={btc} alt="Bitcoin" className="me-3" style={{width: '32px', height: '32px'}} />
+                <span className="fw-semibold">Bitcoin</span>
+                <i className="bi bi-check-circle-fill text-success ms-2 fs-5"></i>
+              </div>
+            </td>
+            <td className="px-4 py-3 text-center">BTC</td>
+            <td className="px-4 py-3 text-center">0.0002</td>
+            <td className="px-4 py-3 text-center text-success fw-semibold">0.24%</td>
+            <td className="px-4 py-3 text-end">0.0002</td>
+          </tr>
 
-  {/* Bitcoin */}
-  <div className="row crypto-row gx-2 justify-content-between align-items-center py-3 py-md-2 border-bottom">
-    <div className="col-7 col-md-3 d-flex align-items-center">
-      <img src={btc} alt="Bitcoin" className="crypto-img me-2" style={{width: '30px', height: '30px'}} />
-      <div>
-        <div>Bitcoin</div>
-        <small className="text-muted d-md-none">BTC</small>
-      </div>
-    </div>
-    <div className="col-5 col-md-9">
-      <div className="row text-center text-md-start">
-        <div className="d-none d-md-block col-md-2">BTC</div>
-        <div className="col-4 col-md-2">0.0002</div>
-        <div className="col-4 col-md-2">0.24%</div>
-        <div className="col-4 col-md-2 text-md-end">0.0002</div>
-      </div>
-    </div>
-  </div>
+          {/* Litecoin */}
+          <tr>
+            <td className="px-4 py-3">
+              <div className="d-flex align-items-center">
+                <img src={ltc} alt="Litecoin" className="me-3" style={{width: '32px', height: '32px'}} />
+                <span className="fw-semibold">Litecoin</span>
+                <i className="bi bi-check-circle-fill text-success ms-2 fs-5"></i>
+              </div>
+            </td>
+            <td className="px-4 py-3 text-center">LTC</td>
+            <td className="px-4 py-3 text-center">0.02</td>
+            <td className="px-4 py-3 text-center text-success fw-semibold">0.24%</td>
+            <td className="px-4 py-3 text-end">0.016</td>
+          </tr>
 
-  {/* Litecoin */}
-  <div className="row crypto-row gx-2 justify-content-between align-items-center py-3 py-md-2 border-bottom">
-    <div className="col-7 col-md-3 d-flex align-items-center">
-      <img src={ltc} alt="Litecoin" className="crypto-img me-2" style={{width: '30px', height: '30px'}} />
-      <div>
-        <div>Litecoin</div>
-        <small className="text-muted d-md-none">LTC</small>
-      </div>
-    </div>
-    <div className="col-5 col-md-9">
-      <div className="row text-center text-md-start">
-        <div className="d-none d-md-block col-md-2">LTC</div>
-        <div className="col-4 col-md-2">0.02</div>
-        <div className="col-4 col-md-2">0.24%</div>
-        <div className="col-4 col-md-2 text-md-end">0.016</div>
-      </div>
-    </div>
-  </div>
+          {/* Bitcoin Cash */}
+          <tr>
+            <td className="px-4 py-3">
+              <div className="d-flex align-items-center">
+                <img src={bch} alt="Bitcoin Cash" className="me-3" style={{width: '32px', height: '32px'}} />
+                <span className="fw-semibold">Bitcoin Cash</span>
+                <i className="bi bi-exclamation-triangle-fill text-warning ms-2 fs-5"></i>
+              </div>
+            </td>
+            <td className="px-4 py-3 text-center">BCH</td>
+            <td className="px-4 py-3 text-center">0.03</td>
+            <td className="px-4 py-3 text-center text-warning fw-semibold">0.25%</td>
+            <td className="px-4 py-3 text-end">0.04</td>
+          </tr>
 
-  {/* Bitcoin Cash */}
-  <div className="row crypto-row gx-2 justify-content-between align-items-center py-3 py-md-2 border-bottom">
-    <div className="col-7 col-md-3 d-flex align-items-center">
-      <img src={bch} alt="Bitcoin Cash" className="crypto-img me-2" style={{width: '30px', height: '30px'}} />
-      <div>
-        <div>Bitcoin Cash</div>
-        <small className="text-muted d-md-none">BCH</small>
-      </div>
-    </div>
-    <div className="col-5 col-md-9">
-      <div className="row text-center text-md-start">
-        <div className="d-none d-md-block col-md-2">BCH</div>
-        <div className="col-4 col-md-2">0.03</div>
-        <div className="col-4 col-md-2">0.25%</div>
-        <div className="col-4 col-md-2 text-md-end">0.04</div>
-      </div>
-    </div>
-  </div>
+          {/* DogeCoin */}
+          <tr>
+            <td className="px-4 py-3">
+              <div className="d-flex align-items-center">
+                <img src={doge} alt="DogeCoin" className="me-3" style={{width: '32px', height: '32px'}} />
+                <span className="fw-semibold">DogeCoin</span>
+                <i className="bi bi-x-circle-fill text-danger ms-2 fs-5"></i>
+              </div>
+            </td>
+            <td className="px-4 py-3 text-center">DOGE</td>
+            <td className="px-4 py-3 text-center">8</td>
+            <td className="px-4 py-3 text-center text-danger fw-semibold">0.26%</td>
+            <td className="px-4 py-3 text-end">16</td>
+          </tr>
 
-  {/* DogeCoin */}
-  <div className="row crypto-row gx-2 justify-content-between align-items-center py-3 py-md-2 border-bottom">
-    <div className="col-7 col-md-3 d-flex align-items-center">
-      <img src={doge} alt="DogeCoin" className="crypto-img me-2" style={{width: '30px', height: '30px'}} />
-      <div>
-        <div>DogeCoin</div>
-        <small className="text-muted d-md-none">DOGE</small>
-      </div>
-    </div>
-    <div className="col-5 col-md-9">
-      <div className="row text-center text-md-start">
-        <div className="d-none d-md-block col-md-2">DOGE</div>
-        <div className="col-4 col-md-2">8</div>
-        <div className="col-4 col-md-2">0.26%</div>
-        <div className="col-4 col-md-2 text-md-end">16</div>
-      </div>
-    </div>
-  </div>
+          {/* Test Coin */}
+          <tr>
+            <td className="px-4 py-3">
+              <div className="d-flex align-items-center">
+                <img src={tcn} alt="Test Coin" className="me-3" style={{width: '32px', height: '32px'}} />
+                <span className="fw-semibold">Test Coin</span>
+                <i className="bi bi-dash-circle-fill text-secondary ms-2 fs-5"></i>
+              </div>
+            </td>
+            <td className="px-4 py-3 text-center">TCN</td>
+            <td className="px-4 py-3 text-center">0.0005</td>
+            <td className="px-4 py-3 text-center text-danger fw-semibold">0.27%</td>
+            <td className="px-4 py-3 text-end">0.008</td>
+          </tr>
 
-  {/* Test Coin */}
-  <div className="row crypto-row gx-2 justify-content-between align-items-center py-3 py-md-2 border-bottom">
-    <div className="col-7 col-md-3 d-flex align-items-center">
-      <img src={tcn} alt="Test Coin" className="crypto-img me-2" style={{width: '30px', height: '30px'}} />
-      <div>
-        <div>Test Coin</div>
-        <small className="text-muted d-md-none">TCN</small>
-      </div>
-    </div>
-    <div className="col-5 col-md-9">
-      <div className="row text-center text-md-start">
-        <div className="d-none d-md-block col-md-2">TCN</div>
-        <div className="col-4 col-md-2">0.0005</div>
-        <div className="col-4 col-md-2">0.27%</div>
-        <div className="col-4 col-md-2 text-md-end">0.008</div>
-      </div>
-    </div>
-  </div>
+          {/* Dash */}
+          <tr>
+            <td className="px-4 py-3">
+              <div className="d-flex align-items-center">
+                <img src={dash} alt="Dash" className="me-3" style={{width: '32px', height: '32px'}} />
+                <span className="fw-semibold">Dash</span>
+                <i className="bi bi-check-circle-fill text-success ms-2 fs-5"></i>
+              </div>
+            </td>
+            <td className="px-4 py-3 text-center">DASH</td>
+            <td className="px-4 py-3 text-center">0.03</td>
+            <td className="px-4 py-3 text-center text-success fw-semibold">0.21%</td>
+            <td className="px-4 py-3 text-end">0.03184715</td>
+          </tr>
 
-  {/* Dash */}
-  <div className="row crypto-row gx-2 justify-content-between align-items-center py-3 py-md-2 border-bottom">
-    <div className="col-7 col-md-3 d-flex align-items-center">
-      <img src={dash} alt="Dash" className="crypto-img me-2" style={{width: '30px', height: '30px'}} />
-      <div>
-        <div>Dash</div>
-        <small className="text-muted d-md-none">DASH</small>
-      </div>
-    </div>
-    <div className="col-5 col-md-9">
-      <div className="row text-center text-md-start">
-        <div className="d-none d-md-block col-md-2">DASH</div>
-        <div className="col-4 col-md-2">0.03</div>
-        <div className="col-4 col-md-2">0.21%</div>
-        <div className="col-4 col-md-2 text-md-end">0.03184715</div>
-      </div>
-    </div>
-  </div>
+          {/* Zano */}
+          <tr>
+            <td className="px-4 py-3">
+              <div className="d-flex align-items-center">
+                <img src={zano} alt="Zano" className="me-3" style={{width: '32px', height: '32px'}} />
+                <span className="fw-semibold">Zano</span>
+                <i className="bi bi-x-circle-fill text-danger ms-2 fs-5"></i>
+              </div>
+            </td>
+            <td className="px-4 py-3 text-center">ZANO</td>
+            <td className="px-4 py-3 text-center">0.7</td>
+            <td className="px-4 py-3 text-center text-danger fw-semibold">0.28%</td>
+            <td className="px-4 py-3 text-end">0.4</td>
+          </tr>
 
-  {/* Zano */}
-  <div className="row crypto-row gx-2 justify-content-between align-items-center py-3 py-md-2 border-bottom">
-    <div className="col-7 col-md-3 d-flex align-items-center">
-      <img src={zano} alt="Zano" className="crypto-img me-2" style={{width: '30px', height: '30px'}} />
-      <div>
-        <div>Zano</div>
-        <small className="text-muted d-md-none">ZANO</small>
-      </div>
-    </div>
-    <div className="col-5 col-md-9">
-      <div className="row text-center text-md-start">
-        <div className="d-none d-md-block col-md-2">ZANO</div>
-        <div className="col-4 col-md-2">0.7</div>
-        <div className="col-4 col-md-2">0.28%</div>
-        <div className="col-4 col-md-2 text-md-end">0.4</div>
-      </div>
+          {/* Binance Coin */}
+          <tr>
+            <td className="px-4 py-3">
+              <div className="d-flex align-items-center">
+                <img src={bnb} alt="Binance Coin" className="me-3" style={{width: '32px', height: '32px'}} />
+                <span className="fw-semibold">Binance Coin</span>
+                <i className="bi bi-check-circle-fill text-success ms-2 fs-5"></i>
+              </div>
+            </td>
+            <td className="px-4 py-3 text-center">BNB</td>
+            <td className="px-4 py-3 text-center text-success fw-semibold">0.23%</td>
+            <td className="px-4 py-3 text-center">0.015</td>
+            <td className="px-4 py-3 text-end text-muted">-</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
-  {/* Binance Coin */}
-  <div className="row crypto-row gx-2 justify-content-between align-items-center py-3 py-md-2 border-bottom">
-    <div className="col-7 col-md-3 d-flex align-items-center">
-      <img src={bnb} alt="Binance Coin" className="crypto-img me-2" style={{width: '30px', height: '30px'}} />
-      <div>
-        <div>Binance Coin</div>
-        <small className="text-muted d-md-none">BNB</small>
-      </div>
+  {/* Premium Members Section */}
+  <div className="mt-5">
+    <div className="text-center mb-4">
+      <h3 className=" fw-bold" style={{color:'#00CEC9'}}>
+        <i className="bi bi-star-fill me-2"></i>
+        FOR PREMIUM MEMBERS ONLY
+      </h3>
     </div>
-    <div className="col-5 col-md-9">
-      <div className="row text-center text-md-start">
-        <div className="d-none d-md-block col-md-2">BNB</div>
-        <div className="col-4 col-md-2">
-          <div className="d-flex flex-column flex-md-row gap-1 justify-content-center justify-content-md-start">
-            <span className="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25">
-              <i className="me-1"><FaGasPump /></i>0.005
-            </span>
-            <span className="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25">
-              <i className="me-1"><FaGasPump /></i>0.008
-            </span>
+
+    <div className="row justify-content-center">
+      {/* Tron */}
+      <div className="col-lg-3 col-md-6 mb-4">
+        <div className="card h-100 bord1">
+          <div className="card-body text-center">
+            <img src={trx} alt="Tron" className="mb-3" style={{width: '48px', height: '48px'}} />
+            <h5 className="card-title fw-bold">Tron</h5>
+            <p className="text-muted mb-2">TRX</p>
+            <div className="d-flex justify-content-center gap-3 mb-3">
+              <span className="badge bg-success">
+                <i className="bi bi-fuel-pump me-1"></i>12
+              </span>
+              <span className="badge bg-danger">
+                <i className="bi bi-fuel-pump me-1"></i>15
+              </span>
+            </div>
+            <p className="text-success fw-semibold mb-1">0.23%</p>
+            <p className="mb-0">15</p>
           </div>
         </div>
-        <div className="col-4 col-md-2">0.23%</div>
-        <div className="col-4 col-md-2 text-md-end">0.015</div>
       </div>
-    </div>
-  </div>
 
-  <div className="text-start text-warning mb-3">
-    FOR PREMIUM MEMBERS ONLY
-  </div>
-
-  {/* Tron */}
-  <div className="row crypto-row gx-2 justify-content-between align-items-center py-3 py-md-2 border-bottom">
-    <div className="col-7 col-md-3 d-flex align-items-center">
-      <img src={trx} alt="Tron" className="crypto-img me-2" style={{width: '30px', height: '30px'}} />
-      <div>
-        <div>Tron</div>
-        <small className="text-muted d-md-none">TRX</small>
-      </div>
-    </div>
-    <div className="col-5 col-md-9">
-      <div className="row text-center text-md-start">
-        <div className="d-none d-md-block col-md-2">TRX</div>
-        <div className="col-4 col-md-2">
-          <div className="d-flex flex-column flex-md-row gap-1 justify-content-center justify-content-md-start">
-            <span className="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25">
-              <i className="me-1"><FaGasPump /></i>12
-            </span>
-            <span className="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25">
-              <i className="me-1"><FaGasPump /></i>15
-            </span>
+      {/* Ethereum */}
+      <div className="col-lg-3 col-md-6 mb-4">
+        <div className="card h-100 bord1">
+          <div className="card-body text-center">
+            <img src={eth} alt="Ethereum" className="mb-3" style={{width: '48px', height: '48px'}} />
+            <h5 className="card-title fw-bold">Ethereum</h5>
+            <p className="text-muted mb-2">ETH</p>
+            <div className="d-flex justify-content-center gap-3 mb-3">
+              <span className="badge bg-success">
+                <i className="bi bi-fuel-pump me-1"></i>0.003
+              </span>
+              <span className="badge bg-danger">
+                <i className="bi bi-fuel-pump me-1"></i>0.005
+              </span>
+            </div>
+            <p className="text-success fw-semibold mb-1">0.23%</p>
+            <p className="mb-0">0.0054</p>
           </div>
         </div>
-        <div className="col-4 col-md-2">0.23%</div>
-        <div className="col-4 col-md-2 text-md-end">15</div>
       </div>
-    </div>
-  </div>
 
-  {/* Ethereum */}
-  <div className="row crypto-row gx-2 justify-content-between align-items-center py-3 py-md-2 border-bottom">
-    <div className="col-7 col-md-3 d-flex align-items-center">
-      <img src={eth} alt="Ethereum" className="crypto-img me-2" style={{width: '30px', height: '30px'}} />
-      <div>
-        <div>Ethereum</div>
-        <small className="text-muted d-md-none">ETH</small>
-      </div>
-    </div>
-    <div className="col-5 col-md-9">
-      <div className="row text-center text-md-start">
-        <div className="d-none d-md-block col-md-2">ETH</div>
-        <div className="col-4 col-md-2">
-          <div className="d-flex flex-column flex-md-row gap-1 justify-content-center justify-content-md-start">
-            <span className="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25">
-              <i className="me-1"><FaGasPump /></i>0.003
-            </span>
-            <span className="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25">
-              <i className="me-1"><FaGasPump /></i>0.005
-            </span>
+      {/* Tether USD ERC20 */}
+      <div className="col-lg-3 col-md-6 mb-4">
+        <div className="card h-100 bord1">
+          <div className="card-body text-center">
+            <img src={usdterc20} alt="Tether USD ERC20" className="mb-3" style={{width: '48px', height: '48px'}} />
+            <h5 className="card-title fw-bold">Tether USD ERC20</h5>
+            <p className="text-muted mb-2">USDTERC20</p>
+            <div className="d-flex justify-content-center gap-3 mb-3">
+              <span className="badge bg-success">
+                <i className="bi bi-fuel-pump me-1"></i>2
+              </span>
+              <span className="badge bg-danger">
+                <i className="bi bi-fuel-pump me-1"></i>5
+              </span>
+            </div>
+            <p className="text-success fw-semibold mb-1">0.23%</p>
+            <p className="mb-0">8</p>
           </div>
         </div>
-        <div className="col-4 col-md-2">0.23%</div>
-        <div className="col-4 col-md-2 text-md-end">0.0054</div>
       </div>
-    </div>
-  </div>
 
-  {/* Tether USD ERC20 */}
-  <div className="row crypto-row gx-2 justify-content-between align-items-center py-3 py-md-2 border-bottom">
-    <div className="col-7 col-md-3 d-flex align-items-center">
-      <img src={usdterc20} alt="Tether USD ERC20" className="crypto-img me-2" style={{width: '30px', height: '30px'}} />
-      <div>
-        <div>Tether USD ERC20</div>
-        <small className="text-muted d-md-none">USDTERC20</small>
-      </div>
-    </div>
-    <div className="col-5 col-md-9">
-      <div className="row text-center text-md-start">
-        <div className="d-none d-md-block col-md-2">USDTERC20</div>
-        <div className="col-4 col-md-2">
-          <div className="d-flex flex-column flex-md-row gap-1 justify-content-center justify-content-md-start">
-            <span className="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25">
-              <i className="me-1"><FaGasPump /></i>2
-            </span>
-            <span className="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25">
-              <i className="me-1"><FaGasPump /></i>5
-            </span>
+      {/* Tether USD TRC20 */}
+      <div className="col-lg-3 col-md-6 mb-4">
+        <div className="card h-100 bord1">
+          <div className="card-body text-center">
+            <img src={usdttrc20} alt="Tether USD TRC20" className="mb-3" style={{width: '48px', height: '48px'}} />
+            <h5 className="card-title fw-bold">Tether USD TRC20</h5>
+            <p className="text-muted mb-2">USDTTRC20</p>
+            <div className="d-flex justify-content-center gap-3 mb-3">
+              <span className="badge bg-success">
+                <i className="bi bi-fuel-pump me-1"></i>2
+              </span>
+              <span className="badge bg-danger">
+                <i className="bi bi-fuel-pump me-1"></i>5
+              </span>
+            </div>
+            <p className="text-success fw-semibold mb-1">0.23%</p>
+            <p className="mb-0">8</p>
           </div>
         </div>
-        <div className="col-4 col-md-2">0.23%</div>
-        <div className="col-4 col-md-2 text-md-end">8</div>
       </div>
     </div>
   </div>
 
-  {/* Tether USD TRC20 */}
-  <div className="row crypto-row gx-2 justify-content-between align-items-center py-3 py-md-2 border-bottom">
-    <div className="col-7 col-md-3 d-flex align-items-center">
-      <img src={usdttrc20} alt="Tether USD TRC20" className="crypto-img me-2" style={{width: '30px', height: '30px'}} />
-      <div>
-        <div>Tether USD TRC20</div>
-        <small className="text-muted d-md-none">USDTTRC20</small>
-      </div>
-    </div>
-    <div className="col-5 col-md-9">
-      <div className="row text-center text-md-start">
-        <div className="d-none d-md-block col-md-2">USDTTRC20</div>
-        <div className="col-4 col-md-2">
-          <div className="d-flex flex-column flex-md-row gap-1 justify-content-center justify-content-md-start">
-            <span className="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25">
-              <i className="me-1"><FaGasPump /></i>2
-            </span>
-            <span className="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25">
-              <i className="me-1"><FaGasPump /></i>5
-            </span>
-          </div>
-        </div>
-        <div className="col-4 col-md-2">0.23%</div>
-        <div className="col-4 col-md-2 text-md-end">8</div>
-      </div>
-    </div>
-  </div>
-
-  <div className="container py-4">
-    <div className="text-center mb-3 pt-3 pt-md-5" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1rem)' }}>
+  {/* Footer Note */}
+  <div className="text-center mt-5 pt-4 border-top">
+    <p className="text-muted mb-4">
+      <i className="bi bi-info-circle-fill text-info me-2"></i>
       You will only be charged above fees if you withdraw funds Manually or Automatically. Deposit is free
-    </div>
-    <div className="d-flex justify-content-center align-items-center gap-3 gap-md-4 flex-wrap">
-      <div className="d-flex align-items-center gap-2">
-        <i><FaGasPump /></i>
-        <span>With Gas Station</span>
-      </div>
-      <div className="vr d-none d-md-block"></div>
-      <div className="d-flex align-items-center gap-2">
-        <i><FaGasPump /></i>
-        <span>Without Gas Station</span>
-      </div>
-      <div className="vr d-none d-md-block"></div>
-      <div className="d-flex align-items-center gap-2">
-        <span>Read more about</span>
-        <a href="/" style={{ color: 'orange', textDecoration: 'none' }}>Gas Station</a>
-      </div>
+    </p>
+    <div className="d-flex justify-content-center align-items-center gap-4 flex-wrap">
+      <span className="badge bg-success fs-6 px-3 py-2">
+        <i className="bi bi-fuel-pump me-2"></i>With Gas Station
+      </span>
+      <span className="badge bg-secondary fs-6 px-3 py-2">
+        <i className="bi bi-fuel-pump me-2"></i>Without Gas Station
+      </span>
+      <a href="/gas-station" className="text-decoration-none fw-semibold" style={{color:'#00CEC9'}}>
+        Read more about Gas Station
+      </a>
     </div>
   </div>
 </section>
+
+
+
+{/* Custom CSS for Large Screens */}
+<style jsx>{`
+  .tableth1 {
+    background-color: #00CEC9 !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: rgba(255, 193, 7, 0.1);
+    transform: translateY(-1px);
+    transition: all 0.3s ease;
+  }
+  
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+  
+  .bord1 {
+    border-color: #00CEC9!important;
+    border-width: 2px !important;
+  }
+  
+  .badge {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  /* Icon colors */
+  .text-success { color: #28a745 !important; }
+  .text-danger { color: #dc3545 !important; }
+  .text-warning { color: #ffc107 !important; }
+  
+  /* Responsive table */
+  @media (min-width: 1200px) {
+    .table-responsive {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    }
+  }
+`}</style>
 
 
 
@@ -421,7 +413,7 @@ const Fess = () => {
 <section className="container py-5">
   {/* First Heading */}
   <div className="text-center mb-4">
-    <h2 className="fw-bold" style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)' }}>Comparison Table</h2>
+    <h1 className="fw-bold py-3" style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)' }}>Comparison Table</h1>
     <p className="text-muted" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1rem)' }}>
       Compare Coinremitter's services to other crypto payment gateways. Know why Coinremitter stands out with its excellent services.
     </p>
@@ -430,11 +422,11 @@ const Fess = () => {
   {/* Mobile View - Only visible on small screens */}
   <div className="d-block d-md-none">
     {/* Coinremitter Card */}
-    <div className="card mb-4 border-warning">
-      <div className="card-header bg-warning bg-opacity-10 text-center py-3">
-        <img src={coinremiter} alt="Coinremitter" style={{ width: '120px' }} />
+    <div className="card mb-4 bord1">
+      <div className="card-header bg-opacity-10 text-center py-3 bord1">
+        <img src={firstlogo1} alt="logo" style={{ width: '120px' }} />
       </div>
-      <div className="card-body">
+      <div className="card-body bord1">
         <div className="mb-3">
           <h6 className="fw-bold">Fees</h6>
           <p>0.23%</p>
@@ -689,7 +681,7 @@ const Fess = () => {
           <tr>
             <th></th>
             <th style={{ border: '2px solid #e68a00' }}>
-              <img src={coinremiter} alt="Coinremitter" style={{ width: '130px' }} />
+              <img src={firstlogo1} alt="Coinremitter" style={{ width: '130px' }} />
             </th>
             <th>
               <img src={opennode} alt="OpenNode" style={{ width: '130px' }} />
@@ -886,7 +878,8 @@ const Fess = () => {
 
   {/* Signup Button */}
   <div className="text-center mt-4">
-    <button className="btn px-4 py-2 crypto-btn">SIGN UP FOR FREE</button>
+    <a href="/signup">
+    <button className="btn btn-lg px-4 py-2 crypto-btn">SIGN UP FOR FREE</button></a>
   </div>
 </section>
 

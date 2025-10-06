@@ -1,8 +1,7 @@
 import React from "react";
 import { FaUser, FaEnvelope, FaPhone, FaLock } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import logo from "../Image/logo.svg";
-
+import firstlogo1 from '../Image/firstlogo1.svg';
 const Signup = () => {
   return (
     <section
@@ -22,8 +21,8 @@ const Signup = () => {
       >
         {/* Logo */}
         <div className="text-center mb-2">
-          <img src={logo} alt="Logo" style={{ height: "45px" }} />
-          <h6 className="text-warning fw-bold mt-2">
+          <img src={firstlogo1} alt="Logo" style={{ height: "45px" }} />
+          <h6 className="fw-bold mt-2" style={{ color: "#00CEC9" }}>
             Coinremitter - Crypto Gateway
           </h6>
           <p className="text-muted small mb-1">
@@ -32,7 +31,9 @@ const Signup = () => {
         </div>
 
         {/* Heading */}
-        <h4 className="text-center fw-bold text-warning mb-3">SIGN UP</h4>
+        <h4 className="text-center fw-bold mb-3" style={{ color: "#00CEC9" }}>
+          SIGN UP
+        </h4>
 
         {/* First & Last Name */}
         <div className="row g-2 mb-2">
@@ -106,8 +107,8 @@ const Signup = () => {
         <div className="form-check small mb-1">
           <input type="checkbox" className="form-check-input" id="terms" />
           <label className="form-check-label" htmlFor="terms">
-            <span className="text-danger">Terms & Conditions</span> &{" "}
-            <span className="text-danger">Privacy Policy</span>
+            <span style={{ color: "#00CEC9" }}>Terms & Conditions</span> &{" "}
+            <span style={{ color: "#00CEC9" }}>Privacy Policy</span>
           </label>
         </div>
 
@@ -128,7 +129,12 @@ const Signup = () => {
 
         {/* Buttons */}
         <div className="d-grid mb-2">
-          <button className="btn btn-warning fw-bold btn-sm">SIGN UP</button>
+          <button
+            className="btn fw-bold btn-sm"
+            style={{ background: "#00CEC9", color: "#fff", border: "none" }}
+          >
+            SIGN UP
+          </button>
         </div>
 
         <div className="text-center text-muted small my-1">------ OR ------</div>
@@ -142,11 +148,11 @@ const Signup = () => {
         {/* Links */}
         <div className="text-center small">
           <p className="mb-0">Already Member ?</p>
-          <a href="/" className="text-warning fw-bold">
+          <a href="/" className="fw-bold" style={{ color: "#00CEC9" }}>
             Sign In
           </a>{" "}
           |{" "}
-          <a href="/" className="text-warning fw-bold">
+          <a href="/" className="fw-bold" style={{ color: "#00CEC9" }}>
             Resend Confirmation
           </a>
         </div>
@@ -156,4 +162,3 @@ const Signup = () => {
 };
 
 export default Signup;
-    

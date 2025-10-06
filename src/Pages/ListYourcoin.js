@@ -49,7 +49,7 @@ const ListYourcoin = () => {
 
 
       {/* <!-- SECTION 2 --> */}
-   <section className="coin-setup py-5" style={{ backgroundColor: 'white', minHeight: '100vh' }}>
+   <section className="coin-setup py-5 bg-white" style={{ backgroundColor: 'white', minHeight: '100vh' }}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8 col-md-10">

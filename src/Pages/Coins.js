@@ -22,84 +22,84 @@ const coinsData = [
     code: "BTC",
     network: "Mainnet",
     img: btc,
-    link: "#"
+    link: "https://www.blockchain.com"
   },
   {
     name: "Litecoin",
     code: "LTC",
     network: "Mainnet",
     img: ltc,
-    link: "#"
+    link: "https://blockchair.com/litecoin"
   },
   {
     name: "Bitcoin Cash",
     code: "BCH",
     network: "Mainnet",
     img: bch,
-    link: "#"
+    link: "https://blockchair.com/bitcoin-cash"
   },
   {
     name: "Ethereum",
     code: "ETH",
     network: "Mainnet",
     img: eth,
-    link: "#"
+    link: "https://etherscan.io"
   },
   {
     name: "DogeCoin",
     code: "DOGE",
     network: "Mainnet",
     img: doge,
-    link: "#"
+    link: "https://blockchair.com/dogecoin"
   },
   {
     name: "Test Coin",
     code: "TCN",
     network: "Testnet",
     img: tcn,
-    link: "#"
+    link: "https://coinremitter.com/tcn"
   },
   {
     name: "Dash",
     code: "DASH",
     network: "Mainnet",
     img: dash,
-    link: "#"
+    link: "https://blockchair.com/dash"
   },
   {
     name: "Tether USD ERC20",
     code: "USDTERC20",
     network: "Mainnet",
     img: usdterc20,
-    link: "#"
+    link: "https://etherscan.io/"
   },
   {
     name: "Binance Coin",
     code: "BNB",
     network: "Mainnet",
     img: btc, // Use correct image
-    link: "#"
+    link: "https://bscscan.com/"
   },
   {
     name: "Tron",
     code: "TRX",
     network: "Mainnet",
     img: trx,
-    link: "#"
+    link: "https://tronscan.io/#/"
   },
   {
     name: "Tether USD TRC20",
     code: "USDTRC20",
     network: "Mainnet",
     img: usdttrc20,
-    link: "#"
+    link: "https://tronscan.io/#/"
   },
   {
     name: "Zano",
     code: "ZANO",
     network: "Mainnet",
     img: zano,
-    link: "#"
+    link: "https://explorer.zano.org/"
   }
 ];
 
@@ -130,8 +130,8 @@ const Coins = () => {
      <div className="container py-5">
       {/* Heading */}
       <div className="text-center mb-5">
-        <h2 className="fw-bold">Check All The Supported <span className="text-warning">Cryptocurrencies</span></h2>
-        <div className="mx-auto" style={{ width: "100px", height: "3px", background: "#f59e0b" }}></div>
+        <h2 className="fw-bold">Check All The Supported <span className=""style={{color:'#00CEC9'}}>Cryptocurrencies</span></h2>
+        <div className="mx-auto" style={{ width: "100px", height: "3px", background: "#00CEC9" }}></div>
       </div>
 
       {/* Grid of coins */}
@@ -145,7 +145,7 @@ const Coins = () => {
                   {coin.name}<small className="text-muted"></small>
                 </h5>
                 <p className="text-muted small">Network: {coin.network}</p>
-                <NavLink to={coin.link} className="btn btn-link p-0 small">Explorer URL</NavLink>
+                <NavLink to={coin.link} className="btn btn-link p-0 small" style={{color:'#00CEC9'}}>Explorer URL</NavLink>
               </div>
             </div>
           </div>
@@ -164,7 +164,7 @@ const Coins = () => {
         {/* First Column */}
         <div className="col-12 col-md-6 mb-4 mb-md-0">
           <h1 className="fw-bold">Crypto Payments & Supported <br />Currencies</h1>
-          <hr style={{ width: "100px", height:'5px' ,color: "#f59e0b", backgroundColor: "#f59e0b" }} className="mb-4" />
+          <hr style={{ width: "100px", height:'5px' ,color: "#00CEC9", backgroundColor: "#00CEC9" }} className="mb-4" />
           <p>
             We can see <strong>crypto payments</strong> replacing fiat payments in the future, maybe or maybe not.
             CoinRemitter’s crypto payment gateway services aim to provide more convenience to business owners in accepting crypto payments. CoinRemitter’s supported currencies are specially curated by experts who cover all the beneficial aspects. Business owners may find a large number of customers willing to <strong>pay in cryptocurrencies</strong> supported by CoinRemitter.
@@ -172,7 +172,7 @@ const Coins = () => {
           <p>
             Each cryptocurrency has its advantages such as Bitcoin’s largest market cap, Litecoin’s rapidly growing adoption, Bitcoin Cash’s higher block size, Ethereum’s largest ecosystem in <strong>blockchain & cryptocurrency</strong>, Dogecoin’s rapidly growing popularity & network, Dash’s faster <strong>crypto transactions</strong>, Tether’s stability, Binance’s liquidity, and Tron’s incredibly low transaction fees.
           </p>
-          <button className="btn crypto-btn text-dark fw-bold p-3 my-3">BEGIN ACCEPTING</button>
+       <a href="/listyourcoin">  <button className="btn crypto-btn btn-lg text-white fw-bold p-3 my-3">BEGIN ACCEPTING</button></a> 
         </div>
 
         {/* Second Column */}
