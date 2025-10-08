@@ -480,6 +480,7 @@
 
 /* SECTION-2 */
 
+
 .section-2 {
   background-color: #fff;
   padding: 60px 15px;
@@ -1052,7 +1053,7 @@
 
  .warning-note {
             background-color: #fff3cd;
-            border-left: 4px solid #00CEC9;
+            border-left: 4px solid #00CEC9 !important;
             padding: 15px;
             margin: 15px 0;
             border-radius: 4px;
@@ -1063,7 +1064,7 @@
 }
 
 .accent-text {
-  color: var(--amber-primary);
+  color: #00CEC9 !important;
 }
 
 .section-subheading {
@@ -1085,7 +1086,7 @@
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(245, 158, 11, 0.1);
-  border-left: 4px solid var(--amber-primary);
+  border-left: 4px solid #00CEC9 !important;
   transition: all 0.3s ease;
 }
 
@@ -1097,7 +1098,7 @@
 .feature-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, var(--amber-primary), var(--amber-light));
+  background: #00CEC9 !important;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1170,7 +1171,7 @@
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(245, 158, 11, 0.1);
-  border-left: 4px solid var(--amber-primary);
+  border-left: 4px solid #00CEC9;
 }
 
 .payment-method-title {
@@ -1183,7 +1184,7 @@
 .coin-remitter-badge {
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(135deg, var(--amber-primary), var(--amber-light));
+  background: #00CEC9;
   color: white;
   padding: 8px 15px;
   border-radius: 20px;
@@ -1198,7 +1199,7 @@
   padding: 15px;
   background: linear-gradient(135deg, #fffbeb, #fef3c7);
   border-radius: 10px;
-  border-left: 4px solid #f59e0b;
+  border-left: 4px solid #00CEC9 !important;
 }
 
 .btc-icon {
@@ -1231,8 +1232,8 @@
 
 
 .custom-btn {
-  background-color: white;
-  color:   #e48f07;
+  background-color: #00CEC9 !important;
+  color:   #fff !important;
   font-weight: 600;
   font-size: 1.1rem;
   padding: 12px 24px;
@@ -1261,7 +1262,7 @@
 }
 
 .custom-btn {
-  background-color: #f7931a;
+  background-color: #00CEC9 !important;
   color: #fff;
   border-radius: 8px;
   transition: all 0.3s ease-in-out;
@@ -1347,11 +1348,9 @@
 
 
 
-
-
 .section-heading {
     
-      color: #00CEC9;
+      color: #000;
       display: inline-block;
       padding: 6px 14px;
       font-weight: 700;
@@ -1442,7 +1441,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 22px; /* icon size */
-  color: #ffc107; /* icon fill color */
+  color: #00CEC9; /* icon fill color */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1526,7 +1525,7 @@
 .step-number {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #f7931a; /* orange accent */
+  color: #00CEC9; /* orange accent */
 }
 
 .step-text {
@@ -1592,13 +1591,13 @@
 }
 
 .btn-outline-primary {
-  border-color: #f7931a;
-  color: #f7931a;
+  border-color: #00CEC9;
+  color: #00CEC9;
 }
 
 .btn-outline-primary:hover {
-  background-color: #f7931a;
-  border-color: #f7931a;
+  background-color: #00CEC9;
+  border-color: #00CEC9;
   color: #fff;
 }
 
@@ -1655,14 +1654,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             min-height: 140px;
         }
 
         .crypto-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            border-color: #f7931a;
+            border-color: #00CEC9;
         }
 
         .crypto-icon {
@@ -1691,7 +1690,7 @@
         }
 
         .crypto-card:hover .crypto-name {
-            color: #f7931a;
+            color: #00CEC9;
         }
 
         /* Responsive Design */
@@ -1756,7 +1755,9 @@
         }
 
 
-
+  .clt3{
+    color: white !important;
+  }
 
 
 
@@ -2412,7 +2413,16 @@
 
 
 
-
+.table-responsive {
+  border-radius: 12px;
+  overflow: hidden;
+}
+.d-flex.border-bottom:last-child {
+  border-bottom: none !important;
+}
+img {
+  object-fit: contain;
+}
 
 
 

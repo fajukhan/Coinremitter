@@ -70,7 +70,7 @@ const Plugins = () => {
       </p>
 
       {/* <!-- Third Button --> */}
-      <a href="/signup" class="btn btn-lg px-4 py-2 fw-semibold text-uppercase crypto-btn">
+      <a href="/signup" class="btn btn-lg px-4 py-3 fw-semibold text-uppercase crypto-btn">
         Get Started ➝
       </a>
     </div>

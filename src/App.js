@@ -22,6 +22,7 @@ import RiskWarm from "./Pages/RiskWarm";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import CookiesPolicy from "./Pages/CookiesPolicy";
 import IcoPayment from "./Pages/IcoPayment";
+import CryptNews from "./Pages/CryptNews";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -162,6 +163,13 @@ const App = () => {
       path: "icopayment",
       element: <IcoPayment />
     },
+
+
+     {
+      path: "cryptonews",
+      element: <CryptNews />
+    },
+
 
 
 

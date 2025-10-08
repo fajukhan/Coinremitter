@@ -680,7 +680,7 @@ const Fess = () => {
         <thead>
           <tr>
             <th></th>
-            <th style={{ border: '2px solid #e68a00' }}>
+            <th style={{ border: '2px solid #00CEC9' }}>
               <img src={firstlogo1} alt="Coinremitter" style={{ width: '130px' }} />
             </th>
             <th>
@@ -704,7 +704,7 @@ const Fess = () => {
           {/* Fees */}
           <tr>
             <td className="text-start fw-bold">Fees</td>
-            <td style={{ border: '2px solid #e68a00' }}>0.23%</td>
+            <td style={{ border: '2px solid #00CEC9' }}>0.23%</td>
             <td>1%</td>
             <td>Network fee* + 0.99%</td>
             <td>1%</td>
@@ -715,7 +715,7 @@ const Fess = () => {
           {/* Supported Coins */}
           <tr>
             <td className="text-start fw-bold">Supported Coins</td>
-            <td style={{ border: '2px solid #e68a00' }} className="text-start">
+            <td style={{ border: '2px solid #00CEC9' }} className="text-start">
               Bitcoin<br />
               Bitcoin Cash<br />
               Ethereum<br />
@@ -780,7 +780,7 @@ const Fess = () => {
           {/* KYC */}
           <tr>
             <td className="text-start fw-bold">KYC</td>
-            <td style={{ border: '2px solid #e68a00' }}>No</td>
+            <td style={{ border: '2px solid #00CEC9' }}>No</td>
             <td>Yes</td>
             <td>Yes</td>
             <td>Yes</td>
@@ -791,7 +791,7 @@ const Fess = () => {
           {/* Supported Plugins */}
           <tr>
             <td className="text-start fw-bold">Supported Plugins</td>
-            <td style={{ border: '2px solid #e68a00' }} className="text-start">
+            <td style={{ border: '2px solid #00CEC9' }} className="text-start">
               WordPress<br />
               Magento 2<br />
               Opencart<br />
@@ -855,7 +855,7 @@ const Fess = () => {
           {/* Security */}
           <tr>
             <td className="text-start fw-bold">Security</td>
-            <td style={{ border: '2px solid #e68a00' }} className="text-start">
+            <td style={{ border: '2px solid #00CEC9' }} className="text-start">
               2FA<br />
               Code Card<br />
               Email Verification<br />
@@ -879,7 +879,7 @@ const Fess = () => {
   {/* Signup Button */}
   <div className="text-center mt-4">
     <a href="/signup">
-    <button className="btn btn-lg px-4 py-2 crypto-btn">SIGN UP FOR FREE</button></a>
+    <button className="btn btn-lg crypto-btn px-4 py-2 crypto-btn py-3" style={{fontSize:'1.3rem'}}>SIGN UP FOR FREE</button></a>
   </div>
 </section>
 

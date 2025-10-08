@@ -94,13 +94,13 @@ const swiperRef = useRef(null);
       <div className="container mx-auto">
         {/* Heading + CTA */}
         <div className="text-center">
-          <h1 className="xl:text-6xl md:text-5xl sm:text-4xl text-[28px] font-extrabold text-black capitalize mb-6">
+          <h1 className="xl:text-6xl md:text-5xl sm:text-4xl text-[28px] font-extrabold text-black capitalize mb-6 fw-bold" style={{fontSize:'3.5rem'}}>
             <span className="inline-block border-b-2 border-amber-500">
               Crypto Payments
             </span>{" "}
             Easy With CoinRemitter
           </h1>
-          <p className="md:text-xl text-base leading-snug font-light text-black mb-4">
+          <p className="md:text-xl text-base leading-snug font-light text-black mb-4" style={{fontSize:'1.2rem'}}>
             Explore the crypto payment gateway specially designed for businesses
           </p>
           <a

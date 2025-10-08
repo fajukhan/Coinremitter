@@ -28,7 +28,7 @@ const Termsofservices = () => {
     <section className="container-fluid py-5 px-5">
       <div className="row justify-content-start">
         <div className="col-12 col-md-10 col-lg-12">
-          <h2 className="fw-bold mb-4" style={{ color: '#f7931a' }}>
+          <h2 className="fw-bold mb-4" style={{ color: '#00CEC9' }}>
             The Services
           </h2>
           <p style={{ color: '#000', fontSize: '1rem', lineHeight: '1.6' }} className="mb-4">
@@ -38,7 +38,7 @@ const Termsofservices = () => {
             and does not assume liability for the transaction outcome.
           </p>
 
-          <h2 className="fw-bold mb-4" style={{ color: '#f7931a' }}>
+          <h2 className="fw-bold mb-4" style={{ color: '#00CEC9' }}>
             The gatherings concur as follows
           </h2>
           <p style={{ color: '#000', fontSize: '1rem', lineHeight: '1.6' }} className="mb-3">
